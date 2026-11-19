@@ -1,0 +1,38 @@
+name: Dienos naujienlaiškis
+
+on:
+  schedule:
+    # 06:00 UTC = 08:00 žiemos laiku / 09:00 vasaros laiku (kad 10:00 jau tikrai būtų paruošta)
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-newsletter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parsisiųsti saugyklą
+        uses: actions/checkout@v4
+
+      - name: Paruošti Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Įdiegti Gemini biblioteką
+        run: pip install google-genai
+
+      - name: Sugeneruoti naujienlaiškį
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python generate.py
+
+      - name: Paskelbti naują leidimą
+        run: |
+          git config user.name "Naujienlaiskio Botas"
+          git config user.email "bot@users.noreply.github.com"
+          git add index.html archive/
+          git diff --staged --quiet || git commit -m "Dienos naujienlaiškis $(date +'%Y-%m-%d')"
+          git push
