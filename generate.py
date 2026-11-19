@@ -38,12 +38,11 @@ SVARBU: Grąžink TIK gryną HTML kodą, be jokių paaiškinimų prieš ar po jo
 """
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="models/gemini-4-neon",
         contents=prompt,
         config=types.GenerateContentConfig(
             tools=[types.Tool(google_search=types.GoogleSearch())],
-            max_output_tokens=32768,
-            temperature=0.4,
+            max_output_tokens=65536,
         ),
     )
 
