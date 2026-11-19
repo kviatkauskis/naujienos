@@ -37,7 +37,7 @@ TURINIO REIKALAVIMAI:
 SVARBU: Grąžink TIK gryną HTML kodą, be jokių paaiškinimų prieš ar po jo.
 """
 
-   response = client.models.generate_content(
+    response = client.models.generate_content(
         model="gemini-2.0-flash",
         contents=prompt,
         config=types.GenerateContentConfig(
@@ -47,7 +47,6 @@ SVARBU: Grąžink TIK gryną HTML kodą, be jokių paaiškinimų prieš ar po jo
     )
 
     html = response.text or ""
-    # Pašaliname galimas Markdown kodo žymes ```html ... ```
     html = re.sub(r"^```(?:html)?\s*", "", html.strip(), flags=re.IGNORECASE)
     html = re.sub(r"\s*```$", "", html.strip())
 
