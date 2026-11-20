@@ -37,12 +37,12 @@ TURINIO REIKALAVIMAI:
 SVARBU: Grąžink TIK gryną HTML kodą, be jokių paaiškinimų prieš ar po jo.
 """
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
+response = client.models.generate_content(
+        model="gemini-4-carbon",
         contents=prompt,
         config=types.GenerateContentConfig(
             tools=[types.Tool(google_search=types.GoogleSearch())],
-            max_output_tokens=8192,
+            max_output_tokens=65536,
         ),
     )
 
