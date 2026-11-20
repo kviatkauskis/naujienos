@@ -42,7 +42,7 @@ DIZAINO IR ADAPTYVAUS MAKETO REIKALAVIMAI:
    - Lipni valdymo juosta (`sticky top-0 z-50 backdrop-blur-md`) su pavadinimu **„Naujienos!“** kairėje, šrifto dydžio valdymu (`A-` / rodiklis `17` / `A+`, ribos 15–21 px), tamsaus/šviesaus režimo jungikliu (saulės/mėnulio ikonos) ir horizontaliai slenkama skyrių navigacija (TL;DR, 01 Tech, 02 Mokslas, 03 Pramonė, 04 Kickstarter, Suvestinė), kur aktyvus skyrius paryškinamas slenkant.
 5. KRITIŠKAS JAVASCRIPT REIKALAVIMAS (SLINKIMO KLAIDOS PREVENCIJA):
    - Slenkant puslapį žemyn (scroll / IntersectionObserver), GRIEŽTAI DRAUDŽIAMA kviesti `scrollIntoView()` ant navigacijos mygtukų arba keisti `window.location.hash` / `history.replaceState` – tai priverčia naršyklę šokinėti atgal į viršų!
-   - Norint horizontaliai pastumti aktyvų mygtuką viršutinėje navigacijos juostoje, naudok TIK `navContainer.scrollTo({ left: btn.offsetLeft - navContainer.offsetWidth / 2 + btn.offsetWidth / 2, behavior: 'smooth' })`.
+   - Norint horizontaliai pastumti aktyvų mygtuką viršutinėje navigacijos juostoje, naudok TIK `navContainer.scrollTo({{ left: btn.offsetLeft - navContainer.offsetWidth / 2 + btn.offsetWidth / 2, behavior: 'smooth' }})`.
    - Visiems skyriams pridėk `scroll-mt-32`, kad paspaudus navigacijos nuorodą antraštė nepalįstų po lipnia juosta.
 6. Žurnalinis viršelis (masthead) su alyvuogių žalios kairės kraštinės juosta, pavadinimu „Naujienos!“, aktualia data ({date_lt}), dienos santraukos antrašte ir skaitymo trukme (~12–15 min.).
 7. Vizualai: prie kiekvienos iš 8 naujienų įterpk originalią, faile integruotą techninę vektorinę iliustraciją (`<svg viewBox="0 0 640 400" class="w-full h-auto">`) tamsiame fone (`#0B0D14`) su lietuviškais žymėjimais, `FIG. 01`–`FIG. 08` etiketėmis ir `<figcaption>` parašu.
