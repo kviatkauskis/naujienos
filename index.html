@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="lt" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0D0E12" id="meta-theme-color">
+  <title>Inžinerinis Dienoraštis — 2026-11-20</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0D0E12;
+      --bg-card: #16181F;
+      --bg-elevated: #1D2029;
+      --bg-header: rgba(13, 14, 18, 0.94);
+      --text-primary: #EAECEF;
+      --text-secondary: #A0A6B1;
+      --border-subtle: #262934;
+      --burgundy: #8B2635;
+      --burgundy-deep: #6E1D29;
+      --burgundy-text: #E27D8C;
+      --burgundy-tint: rgba(139, 38, 53, 0.14);
+      --olive: #4A5D3F;
+      --olive-deep: #384730;
+      --olive-text: #95B483;
+      --olive-tint: rgba(74, 93, 63, 0.16);
+      --svg-bg: #111319;
+      --svg-grid: #1E222D;
+      --svg-stroke: #3A4052;
+      --svg-accent-1: #D45B6E;
+      --svg-accent-2: #86A873;
+      --svg-accent-3: #6D9DC5;
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.45);
+      --base-font-size: 16px;
+    }
+
+    html[data-theme="light"] {
+      --bg-main: #F3F2EE;
+      --bg-card: #FFFFFF;
+      --bg-elevated: #EAE8E1;
+      --bg-header: rgba(243, 242, 238, 0.95);
+      --text-primary: #17191E;
+      --text-secondary: #4E5461;
+      --border-subtle: #D6D3C9;
+      --burgundy: #8B2635;
+      --burgundy-deep: #6E1D29;
+      --burgundy-text: #7A1E2C;
+      --burgundy-tint: rgba(139, 38, 53, 0.08);
+      --olive: #4A5D3F;
+      --olive-deep: #36452E;
+      --olive-text: #38492F;
+      --olive-tint: rgba(74, 93, 63, 0.10);
+      --svg-bg: #F8F7F4;
+      --svg-grid: #E5E2D9;
+      --svg-stroke: #8C929E;
+      --svg-accent-1: #8B2635;
+      --svg-accent-2: #4A5D3F;
+      --svg-accent-3: #2B5B84;
+      --shadow-card: 0 2px 12px rgba(23, 25, 30, 0.07);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: var(--base-font-size);
+      scroll-behavior: smooth;
+      scroll-padding-top: 118px;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.62;
+      overflow-x: hidden;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding-bottom: calc(36px + env(safe-area-inset-bottom, 0px));
+      border-left: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    @media (max-width: 480px) {
+      .app-shell {
+        border-left: none;
+        border-right: none;
+      }
+    }
+
+    /* Sticky Top Header */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background-color: var(--bg-header);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 3px;
+      background-color: var(--border-subtle);
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--burgundy) 0%, var(--olive) 100%);
+      transition: width 0.08s linear;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px 6px 14px;
+      gap: 8px;
+    }
+
+    .brand-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--olive-text);
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .ctrl-btn {
+      appearance: none;
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      min-width: 36px;
+      height: 34px;
+      padding: 0 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .ctrl-btn:active, .ctrl-btn:hover {
+      border-color: var(--burgundy);
+      background-color: var(--bg-elevated);
+    }
+
+    /* Quick Nav Horizontal Scroll */
+    .quick-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px 10px 14px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .quick-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-pill {
+      flex-shrink: 0;
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 11px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+
+    .nav-pill.active, .nav-pill:active {
+      background-color: var(--burgundy);
+      color: #FFFFFF;
+      border-color: var(--burgundy);
+    }
+
+    /* Content Container */
+    .content-wrap {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* Burgundy TL;DR Block */
+    .tldr-card {
+      background: linear-gradient(155deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);
+      color: #F8F9FA;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .tldr-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .tldr-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background-color: rgba(0, 0, 0, 0.28);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #FFFFFF;
+    }
+
+    .tldr-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .tldr-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tldr-list li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.88rem;
+      line-height: 1.48;
+      color: #F4F5F7;
+    }
+
+    .tldr-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #FFD1D9;
+      font-weight: 700;
+    }
+
+    .tldr-list strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    /* Section Styling */
+    .news-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--burgundy);
+      padding-bottom: 6px;
+      margin-top: 4px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-index {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: var(--olive);
+      color: #FFFFFF;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .section-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+
+    /* Article Card */
+    .article-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .article-meta-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+
+    .tag-chip {
+      background-color: var(--olive-tint);
+      color: var(--olive-text);
+      border: 1px solid var(--olive);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .article-title {
+      margin: 0;
+      font-size: 1.06rem;
+      font-weight: 700;
+      line-height: 1.36;
+      color: var(--text-primary);
+    }
+
+    /* Technical Specs Strip inside Article */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .metric-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+    }
+
+    .metric-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 2px;
+      overflow-wrap: break-word;
+    }
+
+    /* SVG Figure */
+    .tech-figure {
+      margin: 0;
+      background-color: var(--svg-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .tech-figure svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .tech-figure figcaption {
+      padding: 8px 10px;
+      font-size: 0.74rem;
+      line-height: 1.4;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-elevated);
+    }
+
+    /* Body Copy */
+    .article-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      overflow-wrap: break-word;
+    }
+
+    .article-body p {
+      margin: 0;
+    }
+
+    /* Analytical Perspective Blocks */
+    .insight-box {
+      border-radius: 8px;
+      padding: 12px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .insight-ai {
+      background-color: var(--olive-tint);
+      border: 1px solid rgba(74, 93, 63, 0.45);
+      border-left: 4px solid var(--olive);
+    }
+
+    .insight-expert {
+      background-color: var(--burgundy-tint);
+      border: 1px solid rgba(139, 38, 53, 0.45);
+      border-left: 4px solid var(--burgundy);
+    }
+
+    .insight-title {
+      margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .insight-ai .insight-title {
+      color: var(--olive-text);
+    }
+
+    .insight-expert .insight-title {
+      color: var(--burgundy-text);
+    }
+
+    .insight-box p {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.54;
+      color: var(--text-primary);
+    }
+
+    /* Direct Source Link Button */
+    .source-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 11px 14px;
+      background-color: var(--bg-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--burgundy);
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .source-btn:hover, .source-btn:active {
+      background-color: var(--burgundy);
+      color: #FFFFFF;
+    }
+
+    /* Mobile Summary Cards */
+    .summary-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .summary-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 3px solid var(--olive);
+      border-radius: 10px;
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .summary-card.burgundy-top {
+      border-top-color: var(--burgundy);
+    }
+
+    .summary-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 6px;
+    }
+
+    .summary-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .summary-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .summary-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 0.79rem;
+    }
+
+    .summary-key {
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .summary-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.77rem;
+      color: var(--text-primary);
+      text-align: right;
+      overflow-wrap: break-word;
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 12px;
+      padding: 18px 14px 8px 14px;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sticky Header -->
+    <header class="sticky-header" id="top-header">
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-bar" id="reading-progress"></div>
+      </div>
+      <div class="header-top">
+        <div class="brand-group">
+          <span class="brand-title">Inžinerinis Dienoraštis</span>
+          <span class="brand-meta">
+            <span class="status-dot"></span>
+            <time datetime="2026-11-20">2026-11-20</time> · Nr. 324
+          </span>
+        </div>
+        <div class="controls-group" role="group" aria-label="Skaitymo nustatymai">
+          <button type="button" class="ctrl-btn" id="font-dec" title="Sumažinti šriftą" aria-label="Sumažinti šriftą">A-</button>
+          <button type="button" class="ctrl-btn" id="font-inc" title="Padidinti šriftą" aria-label="Padidinti šriftą">A+</button>
+          <button type="button" class="ctrl-btn" id="theme-toggle" title="Perjungti temą" aria-label="Perjungti tamsų arba šviesų režimą">☀</button>
+        </div>
+      </div>
+      <nav class="quick-nav" aria-label="Greitoji navigacija">
+        <a href="#tldr" class="nav-pill active">TL;DR</a>
+        <a href="#technologijos" class="nav-pill">Technologijos</a>
+        <a href="#mokslas" class="nav-pill">Mokslas</a>
+        <a href="#pramone" class="nav-pill">Pramonė</a>
+        <a href="#kickstarter" class="nav-pill">Kickstarter</a>
+        <a href="#suvestine" class="nav-pill">Suvestinė</a>
+      </nav>
+    </header>
+
+    <main class="content-wrap">
+      <!-- TL;DR Section -->
+      <section id="tldr" class="tldr-card" aria-label="Dienos santrauka">
+        <div class="tldr-header">
+          <span class="tldr-badge">TL;DR · Dienos Akcentai</span>
+          <span class="tldr-subtitle">2026-11-19 / 11-20</span>
+        </div>
+        <ul class="tldr-list">
+          <li><strong>Eksaskalės skaičiavimai (SC26):</strong> ACM „Gordon Bell“ premijos skirtos už 1,456 EFLOP/s (FP64) kvantinės chemijos FeMoco modeliavimą ant 20 480 mazgų ir vienpakopę $O(N)$ klimato duomenų asimiliacijos sistemą „STORM“.</li>
+          <li><strong>Puslaidininkių kontrolė:</strong> Įsigaliojus JAV Prekybos departamento taisyklei, eksporto ir nuotolinės prieigos licencijavimo slenkstis išplėstas nuo 7 nm iki 16 nm FinFET mazgo; TSMC sustabdė atitinkamus Kinijos užsakovų srautus.</li>
+          <li><strong>Kosmoso ir klimato fizika:</strong> NASA „Voyager 1“ kirto 1 šviesos paros (25,902 mlrd. km) ribą su 48 val. dvipusio ryšio vėlavimu, o MIT ir WHOI 15 000 Antarktidos ledo skardžių analizė paneigė nevaldomos MICI griūties hipotezę.</li>
+          <li><strong>Gamyba ir techninė įranga:</strong> „Volvo EX60“ įdiegtas 44 % lengvesnis beplienis termoplastinis sandariklis „FlexiCore“, o „Kickstarter“ platformoje >1 640 % finansavimą pasiekė 960 g autonominis 3D skeneris „Revopoint MIRACO 2“.</li>
+        </ul>
+      </section>
+
+      <!-- 1. TECHNOLOGIJOS -->
+      <section id="technologijos" class="news-section">
+        <div class="section-header">
+          <h2 class="section-title"><span class="section-index">01</span> Technologijos</h2>
+          <span class="section-count">2 naujienos</span>
+        </div>
+
+        <!-- Tech Item 1 -->
+        <article class="article-card">
+          <div class="article-meta-top">
+            <span class="tag-chip">HPC · Eksaskalė</span>
+            <span>SC26 Čikaga · 2026-11-20</span>
+          </div>
+          <h3 class="article-title">SC26 „Gordon Bell“ premijos: 1,456 EFLOP/s FeMoco kvantinė chemija ir tiesinio sudėtingumo klimato sistema „STORM“</h3>
+
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <span class="metric-label">FP64 / Mišrus našumas</span>
+              <span class="metric-value">1,456 / 5,626 EFLOP/s</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Skaičiavimo mastas</span>
+              <span class="metric-value">20 480 mazgų (58,9 % piko)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Klimato architektūra</span>
+              <span class="metric-value">STORM (O(N) dėmesys)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label"> bazinė platforma</span>
+              <span class="metric-value">LineShine / ORNL Frontier</span>
+            </div>
+          </div>
+
+          <figure class="tech-figure">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TQI 2.0 ir STORM eksaskalės skaičiavimų palyginimo schema">
+              <rect width="400" height="200" fill="var(--svg-bg)"/>
+              <line x1="200" y1="12" x2="200" y2="188" stroke="var(--svg-stroke)" stroke-dasharray="3,3" stroke-width="1"/>
+              <!-- Left Panel: TQI 2.0 FeMoco -->
+              <text x="14" y="24" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">TQI 2.0: FeMoco CAS (20 480 mazgų)</text>
+              <rect x="14" y="36" width="172" height="46" rx="4" fill="none" stroke="var(--svg-stroke)" stroke-width="1"/>
+              <circle cx="42" cy="59" r="9" fill="none" stroke="var(--svg-accent-1)" stroke-width="1.8"/>
+              <circle cx="68" cy="49" r="6" fill="none" stroke="var(--svg-accent-2)" stroke-width="1.5"/>
+              <circle cx="68" cy="69" r="6" fill="none" stroke="var(--svg-accent-2)" stroke-width="1.5"/>
+              <line x1="50" y1="55" x2="62" y2="50" stroke="var(--text-secondary)" stroke-width="1.2"/>
+              <line x1="50" y1="63" x2="62" y2="68" stroke="var(--text-secondary)" stroke-width="1.2"/>
+              <text x="84" y="55" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5">Fe₇MoS₉C klasteris</text>
+              <text x="84" y="68" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">Kvantinių būsenų tenzoriai</text>
+              <!-- Bars -->
+              <text x="14" y="102" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="8.5">FP64 (58,9% piko): 1,456 EFLOP/s</text>
+              <rect x="14" y="108" width="172" height="12" rx="2" fill="var(--svg-grid)"/>
+              <rect x="14" y="108" width="101" height="12" rx="2" fill="var(--svg-accent-1)"/>
+              <text x="14" y="140" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="8.5">Mišrus tikslumas: 5,626 EFLOP/s</text>
+              <rect x="14" y="146" width="172" height="12" rx="2" fill="var(--svg-grid)"/>
+              <rect x="14" y="146" width="162" height="12" rx="2" fill="var(--svg-accent-2)"/>
+              <text x="14" y="178" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">Klasikinis tenzorinis sprendimas</text>
+
+              <!-- Right Panel: STORM on Frontier -->
+              <text x="212" y="24" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">STORM: ORNL „Frontier“</text>
+              <!-- Old 2-step -->
+              <rect x="212" y="36" width="174" height="52" rx="4" fill="none" stroke="var(--svg-stroke)" stroke-width="1"/>
+              <text x="220" y="50" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8.5">Tradicinis 2 etapų ciklas O(N²):</text>
+              <rect x="220" y="57" width="68" height="22" rx="3" fill="var(--svg-grid)"/>
+              <text x="226" y="71" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="8">Asimiliacija</text>
+              <line x1="290" y1="68" x2="306" y2="68" stroke="var(--text-secondary)" stroke-width="1.2"/>
+              <rect x="308" y="57" width="68" height="22" rx="3" fill="var(--svg-grid)"/>
+              <text x="317" y="71" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="8">Prognozė</text>
+              <!-- New 1-step -->
+              <rect x="212" y="102" width="174" height="62" rx="4" fill="none" stroke="var(--svg-accent-2)" stroke-width="1.4"/>
+              <text x="220" y="117" fill="var(--svg-accent-2)" font-family="Inter, sans-serif" font-size="8.5" font-weight="600">Vienpakopis generatyvinis O(N):</text>
+              <rect x="220" y="125" width="158" height="28" rx="3" fill="var(--olive-tint)"/>
+              <text x="229" y="142" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5">Tiesinis globalus dėmesys</text>
+              <text x="212" y="178" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">AMD Instinct MI250X skaičiavimo mazgai</text>
+            </svg>
+            <figcaption>1 pav. SC26 „Gordon Bell“ laureatų skaičiavimo schemos: FeMoco kvantinės chemijos našumas (kairėje) ir „STORM“ vienpakopė duomenų asimiliacija (dešinėje).</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p>Čikagoje vykusioje tarptautinėje superkompiuterių konferencijoje „SC26“ paskelbti 2026 m. ACM „Gordon Bell“ premijų laureatai. Pagrindinis apdovanojimas skirtas dešimties tyrėjų grupei iš Kinijos mokslo ir technologijų universiteto (USTC), Kinijos mokslų akademijos bei Sun Jatseno universiteto už programinį paketą „TQI 2.0“, pirmą kartą eksaskalės lygiu išsprendusį geležies ir molibdeno kofaktoriaus (FeMoco) pilnos aktyviosios erdvės (CAS) kvantinės chemijos uždavinį. FeMoco yra pagrindinis nitrogenazės fermento centras, atsakingas už atmosferinio azoto ($\text{N}_2$) redukciją aplinkos temperatūroje, kurio elektroninių būsenų koreliacija dešimtmečius viršijo klasikinių superkompiuterių atminties ir komunikacijos ribas. Pritaikius kodą 20 480 „LineShine“ superkompiuterio mazgų (taip pat validavus CNIS sistemoje), pasiektas pastovus 1,456 EFLOP/s dvigubo tikslumo (FP64) našumas – tai sudaro 58,9 % teorinio aparatinio piko – ir 5,626 EFLOP/s mišraus tikslumo režimu.</p>
+            <p>Specialioji 2026 m. ACM „Gordon Bell“ klimato modeliavimo premija įteikta Floridos valstijos universiteto (FSU), Oak Ridge nacionalinės laboratorijos (ORNL), Kolorado valstijos universiteto ir „AMD“ tyrėjų komandai (vad. Guannan Zhang, Feng Bao ir Hristo Chipilski). Ant ORNL superkompiuterio „Frontier“ pademonstruota sistema „STORM“ pakeičia klasikinį dviejų etapų Žemės sistemos prognozavimą (kai pirma vykdomas palydovinių stebėjimų duomenų asimiliavimas per EnKF ar 4D-Var filtrus, o po to – skaitinis diferencialinių lygčių integravimas) bendru vienpakopiu generatyviniu procesu. Pritaikius globalų dėmesio mechanizmą su tiesiniu skaičiavimo sudėtingumu $O(N)$ vietoj kvadratinio $O(N^2)$, pašalinamas tarpinių mazgų sinchronizacijos siaurasis kakliukas didelės erdvinės skiriamosios gebos uraganų ir ekstremalių atmosferos reiškinių modeliavime.</p>
+          </div>
+
+          <div class="insight-box insight-ai">
+            <h4 class="insight-title"><span>◈</span> DI akimis: perspektyvos, tendencijos ir poveikis</h4>
+            <p>Abu SC26 įvertinti darbai rodo aiškią architektūrinę slinktį: didelio našumo skaičiavimuose (HPC) grynąjį FP64 diferencialinių lygčių sprendimą sparčiai papildo mišraus tikslumo tenzoriniai branduoliai ir tiesinio sudėtingumo generatyviniai operatoriai. FeMoco uždavinio įveikimas klasikiniu eksaskalės masyvu aukščiau pakelia kartelę kvantiniams kompiuteriams – sritis, kurioje tikėtasi ankstyvojo kvantinio pranašumo katalizatorių sintezėje, dabar turi tiesiogiai konkuruoti su >5 EFLOP/s mišraus tikslumo klasikiniais klasteriais.</p>
+          </div>
+
+          <div class="insight-box insight-expert">
+            <h4 class="insight-title"><span>⚖</span> Realių ekspertų vertinimas</h4>
+            <p>Skaičiavimo fizikos ir meteorologijos inžinieriai atkreipia dėmesį į du praktinius ribotumus. Pirma, 20 480 mazgų apkrova FeMoco skaičiavimams reikalauja dešimčių megavatų elektros galios vienai molekulinei konfigūracijai įvertinti, todėl pramoniniam trąšų katalizatorių atrankos ciklui toks metodas vis dar per brangus. Antra, skaitinės orų prognozės praktikai pabrėžia, kad generatyvinė duomenų asimiliacija linkusi sušvelninti retus, statistinėje mokymo imtyje nefiksuotus baroklininius nestabilumus – be griežtų masės ir energijos tvermės apribojimų ilgesnės trukmės klimato projekcijose gali kauptis fizikinės paklaidos.</p>
+          </div>
+
+          <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpuux7b-qwsmZrGSO5eTUjLz-tiKwo-J4Bnr2bFFxAjVy8vg0iiiHvOtJEtqBrZZvSV3-fOzteTsGudNFLCb4_NLlqnKSyknlvBeV8OH70ptqBtkvUAJ_Gt0HFk2slk2penc2uTw_Y4v-nWeIa_AUIMLmWdFvWD89udWlhNAUNKs957adF9-sHN0o0qR8mn03azDd-KjUnl5SEs1_TZ9v6BMy_NhmE_wRhHAiLpM6-MA==" target="_blank" rel="noopener noreferrer" class="source-btn">Atverti šaltinį ↗</a>
+        </article>
+
+        <!-- Tech Item 2 -->
+        <article class="article-card">
+          <div class="article-meta-top">
+            <span class="tag-chip">Puslaidininkiai · Reguliavimas</span>
+            <span>Taipėjus / Vašingtonas · 2026-11-20</span>
+          </div>
+          <h3 class="article-title">JAV išplėtė puslaidininkių eksporto bei nuotolinės prieigos ribą iki 16 nm FinFET: TSMC stabdo nelicencijuotus užsakymus</h3>
+
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <span class="metric-label">Naujas technologinis slenkstis</span>
+              <span class="metric-value">&le; 16 nm FinFET</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Ankstesnė riba</span>
+              <span class="metric-value">&le; 7 nm mazgas</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">TSMC akcijų pokytis</span>
+              <span class="metric-value">$352,09 (-2,93 % NY)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Įsigaliojimo data</span>
+              <span class="metric-value">2026-11-19 (BIS taisyklė)</span>
+            </div>
+          </div>
+
+          <figure class="tech-figure">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="16 nm FinFET eksporto ribos ir nuotolinės prieigos kontrolės schema">
+              <rect width="400" height="200" fill="var(--svg-bg)"/>
+              <text x="16" y="24" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">Litografijos mazgų licencijavimo skalė (nuo 2026-11-19)</text>
+              <!-- Scale Boxes -->
+              <rect x="16" y="38" width="84" height="44" rx="4" fill="var(--olive-tint)" stroke="var(--svg-accent-2)" stroke-width="1.2"/>
+              <text x="26" y="57" fill="var(--svg-accent-2)" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">28 nm+</text>
+              <text x="24" y="72" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">Planariniai CMOS</text>
+
+              <!-- Cutoff Line -->
+              <line x1="108" y1="32" x2="108" y2="94" stroke="var(--svg-accent-1)" stroke-width="2.2"/>
+              <text x="113" y="44" fill="var(--svg-accent-1)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">NAUJA RIBA: 16 nm</text>
+
+              <rect x="116" y="50" width="86" height="32" rx="4" fill="var(--burgundy-tint)" stroke="var(--svg-accent-1)" stroke-width="1.2"/>
+              <text x="123" y="69" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5">16/12 nm FinFET</text>
+
+              <rect x="208" y="50" width="84" height="32" rx="4" fill="var(--burgundy-tint)" stroke="var(--svg-accent-1)" stroke-width="1.2"/>
+              <text x="216" y="69" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5">7 / 5 nm EUV</text>
+
+              <rect x="298" y="50" width="86" height="32" rx="4" fill="var(--burgundy-tint)" stroke="var(--svg-accent-1)" stroke-width="1.2"/>
+              <text x="307" y="69" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5">3 / 2 nm GAA</text>
+
+              <!-- Two Control Vectors -->
+              <rect x="16" y="104" width="178" height="76" rx="4" fill="none" stroke="var(--svg-stroke)" stroke-width="1"/>
+              <text x="24" y="121" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">1. Fizinė plokštelių gamyba</text>
+              <text x="24" y="137" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">Preziumuojama kontrolė: TSMC</text>
+              <text x="24" y="150" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">stabdo &le;16 nm užsakymus be</text>
+              <text x="24" y="163" fill="var(--svg-accent-1)" font-family="JetBrains Mono, monospace" font-size="8">JAV BIS eksporto licencijos</text>
+
+              <rect x="206" y="104" width="178" height="76" rx="4" fill="none" stroke="var(--svg-stroke)" stroke-width="1"/>
+              <text x="214" y="121" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">2. Nuotolinė IaaS prieiga</text>
+              <text x="214" y="137" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">Ribojama nuotolinė prieiga prie</text>
+              <text x="214" y="150" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">pažangių lustų klasterių užsienio</text>
+              <text x="214" y="163" fill="var(--svg-accent-3)" font-family="JetBrains Mono, monospace" font-size="8">debesijos duomenų centruose</text>
+            </svg>
+            <figcaption>2 pav. JAV Prekybos departamento (BIS) sugriežtintas eksporto kontrolės perimetras: slenksčio perkėlimas į 16 nm FinFET mazgą ir nuotolinės debesijos prieigos įtraukimas.</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p>Lapkričio 19 d. įsigaliojus JAV Prekybos departamento Pramonės ir saugumo biuro (BIS) tarpinei galutinei taisyklei „Addressing Remote Access to Advanced Semiconductors“, puslaidininkių gamybos milžinė TSMC informavo paveiktus Kinijos lustų projektuotojus apie užsakymų stabdymą 16 nanometrų ir pažangesniuose technologiniuose mazguose be patvirtintų JAV licencijų. Iki šiol tiesioginiai gamyklų apribojimai daugiausia taikyti 7 nm ir smulkesniems tranzistorių procesams. Naujasis reguliavimas apverčia įrodinėjimo naštą: bet koks 16 nm FinFET ar mažesnio mazgo integrinis grandynas automatiškai preziumuojamas kaip kontroliuojamas, todėl užsakovas privalo licencijavimo tvarka įrodyti, kad lustas neviršija skaičiavimo tankio ir pralaidumo ribų.</p>
+            <p>Techniškai 16 nm riba yra kritinė tuo, kad ji žymi istorinį perėjimą nuo plokščiųjų (planarinių) 28 nm MOSFET tranzistorių prie trimačių FinFET struktūrų, kurios būtinos efektyviam daugiabranduolių serverių, tinklo komutatorių ASIC ir periferinių DI spartintuvų projektavimui. Kartu taisyklė uždaro debesijos spragą, ribodama nuotolinę prieigą prie pažangių lustų klasterių trečiosiose šalyse. Finansų rinkose TSMC akcijos Niujorko biržoje (NYSE: TSM) smuko 2,93 % iki 352,09 USD (27,5 % žemiau spalio 5 d. pasiekto 485,80 USD maksimumo), o penktadienį Taipėjuje krito 4,29 % iki 2 010 TWD. Tiekimo grandinės sukrėtimą iliustruoja Japonijos bendrovės „Datasection“ sprendimas šią savaitę sumažinti pajamų prognozę 89 % po atšaukto stambaus DI infrastruktūros užsakymo.</p>
+          </div>
+
+          <div class="insight-box insight-ai">
+            <h4 class="insight-title"><span>◈</span> DI akimis: perspektyvos, tendencijos ir poveikis</h4>
+            <p>Kontrolės ribos perkėlimas prie pat FinFET technologijos pradžios (16 nm) reiškia, kad eksporto politika pereina nuo siauro flagmaninių DI treniravimo procesorių blokavimo prie plataus pramoninio skaičiavimo bazės ribojimo. Tai paspartins dvi priešingas inžinerines tendencijas: agresyvų 28 nm mazgo lustų jungimą į heterogeninius „chiplet“ paketus bei vietinės DUV litografijos įrangos apkrovos maksimizavimą Kinijos gamyklose (pvz., SMIC 14 nm/N+2 linijose), nepaisant žemesnio tinkamų kristalų išeigos procento (angl. <em>yield</em>).</p>
+          </div>
+
+          <div class="insight-box insight-expert">
+            <h4 class="insight-title"><span>⚖</span> Realių ekspertų vertinimas</h4>
+            <p>Puslaidininkių tiekimo grandinės analitikai ir debesijos architektai skeptiškai vertina nuotolinės prieigos kontrolės (KYC duomenų centruose) praktinį įgyvendinamumą. Skirtingai nei fizinės 300 mm silicio plokštelės, kurias lengva susekti per kelias pasaulines liejyklas, paskirstytos skaičiavimo užduotys gali būti skaidomos ir maršrutizuojamos per antrines Pietryčių Azijos ar Artimųjų Rytų įmones. Be to, platus 16 nm apribojimas paliečia ne tik DI lustus, bet ir standartinius automobilių ADAS valdiklius, kur TSMC prarastos apimtys tiesiogiai subsidijuos vietinių konkurentų brandžių mazgų plėtrą.</p>
+          </div>
+
+          <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHVUi2btFMXhtEPU-WQoNDxUZIU_6EFMAnpjLbOFiqS-ew7df72NC6fn26HqID63AKnMZLZrsDvHt9LNzogjo9W3xeTrJ-I4mCxqhwE71VbgZy2NcgZxbluE8L8jlUTuxxddDVO42RCtn0GtocpYN_dF9IlaYDyxnBY_qdMC5_Qn_FVCvMXl1mNTeLFojQfr_d-bW1lrBQIvUxRABa1z-1E6IR" target="_blank" rel="noopener noreferrer" class="source-btn">Atverti šaltinį ↗</a>
+        </article>
+      </section>
+
+      <!-- 2. MOKSLAS -->
+      <section id="mokslas" class="news-section">
+        <div class="section-header">
+          <h2 class="section-title"><span class="section-index">02</span> Mokslas</h2>
+          <span class="section-count">2 naujienos</span>
+        </div>
+
+        <!-- Science Item 1 -->
+        <article class="article-card">
+          <div class="article-meta-top">
+            <span class="tag-chip">Astrofizika · Kosminis ryšys</span>
+            <span>NASA JPL · 2026-11-19</span>
+          </div>
+          <h3 class="article-title">NASA „Voyager 1“ pasiekė 1 šviesos paros nuotolį nuo Žemės: atstumas patvirtintas nešančiuoju X diapazono signalu</h3>
+
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <span class="metric-label">Tikslus nuotolis</span>
+              <span class="metric-value">25 902 068 356 km</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Dvipusis vėlavimas (RTT)</span>
+              <span class="metric-value">48 val. 00 min.</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Heliocentrinis greitis</span>
+              <span class="metric-value">~61 155 km/h</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Siųstuvo / Priėmimo galia</span>
+              <span class="metric-value">~20 W / ~10⁻²² W</span>
+            </div>
+          </div>
+
+          <figure class="tech-figure">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voyager 1 vienos šviesos paros nuotolio ir radijo ryšio schema">
+              <rect width="400" height="200" fill="var(--svg-bg)"/>
+              <text x="16" y="24" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">Elektromagnetinio signalo sklidimo trukmė (c = 299 792 km/s)</text>
+              <!-- Axis -->
+              <line x1="28" y1="78" x2="372" y2="78" stroke="var(--svg-stroke)" stroke-width="2"/>
+              <!-- Earth -->
+              <circle cx="28" cy="78" r="7" fill="var(--svg-accent-3)"/>
+              <text x="16" y="100" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5">Žemė</text>
+              <text x="16" y="111" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7.5">DSN 70m</text>
+              <!-- Moon -->
+              <circle cx="75" cy="78" r="3.5" fill="var(--text-secondary)"/>
+              <text x="60" y="64" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="8">Mėnulis</text>
+              <text x="64" y="96" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7.5">1,3 s</text>
+              <!-- Neptune -->
+              <circle cx="155" cy="78" r="5" fill="var(--svg-accent-3)"/>
+              <text x="134" y="64" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="8">Neptūnas</text>
+              <text x="142" y="96" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7.5">~4 val.</text>
+              <!-- Heliopause -->
+              <path d="M 235 46 Q 250 78 235 110" fill="none" stroke="var(--svg-accent-2)" stroke-dasharray="3,2" stroke-width="1.5"/>
+              <text x="212" y="42" fill="var(--svg-accent-2)" font-family="Inter, sans-serif" font-size="8">Heliopauzė (2012)</text>
+              <!-- Voyager 1 -->
+              <circle cx="362" cy="78" r="6" fill="var(--svg-accent-1)"/>
+              <line x1="352" y1="68" x2="372" y2="88" stroke="var(--svg-accent-1)" stroke-width="1.5"/>
+              <text x="312" y="58" fill="var(--svg-accent-1)" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">Voyager 1</text>
+              <text x="305" y="98" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">24 val. 00 min.</text>
+              <text x="305" y="110" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7.5">25,902 mlrd. km</text>
+
+              <!-- Telemetry Callout Box -->
+              <rect x="16" y="128" width="368" height="56" rx="4" fill="none" stroke="var(--svg-stroke)" stroke-width="1"/>
+              <text x="26" y="145" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">Ryšio biudžetas (X-band, 8,4 GHz):</text>
+              <text x="26" y="160" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">Borto siųstuvas: ~20 W (3,7 m parabolė) → Žemėje priimama ~10⁻²² W.</text>
+              <text x="26" y="173" fill="var(--svg-accent-1)" font-family="Inter, sans-serif" font-size="8">Statusas: Nuo 11-14 fiksuojamas tik nešantysis signalas be telemetrijos.</text>
+            </svg>
+            <figcaption>3 pav. „Voyager 1“ vienos šviesos paros nuotolio geometrija ir NASA tolimojo kosminio ryšio tinklo (DSN) X diapazono signalo parametrai.</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p>NASA Reaktyvinio judėjimo laboratorija (JPL) patvirtino, kad 1977 m. paleistas zondas „Voyager 1“ tapo pirmuoju žmonijos sukurtu objektu, nutolusiu nuo Žemės per vieną šviesos parą – 25 902 068 356 kilometrus (16 094 799 096 mylias). Šį tašką erdvėlaivis kirto lapkričio 18 d. 10:16:07 UTC laiku, skriedamas apie 61 155 km/h greičiu tarpžvaigždinėje plazmoje už Saulės heliosferos ribų, o šviesos greičiu sklindantis radijo patvirtinimas Kalifornijoje esantį valdymo centrą pasiekė lygiai po 24 valandų – lapkričio 19 d. Dėl Žemės orbitinio judėjimo aplink Saulę atstumas iki zondo kasmet svyruoja, tačiau po šio kirtimo „Voyager 1“ daugiau niekada nebegrįš į mažesnį nei 24 šviesos valandų nuotolį. Jo dvynys „Voyager 2“ šiuo metu yra už maždaug 20 šviesos valandų ir analogišką ribą pasieks tik 2035 m. lapkritį.</p>
+            <p>JPL telemetrijos inžinieriai atskleidė svarbią techninę detalę: nuo lapkričio 14 d. zondas nebeperduoda moduliuotų mokslinių ir inžinerinių telemetrijos duomenų paketų. Nepaisant to, 3,7 metro skersmens kryptinė antena toliau stabiliai transliuoja nemoduliuotą ~20 W galios X diapazono (~8,4 GHz) nešantįjį signalą (angl. <em>carrier signal</em>). Pasiekęs NASA Tolimojo kosminio ryšio tinklo (DSN) 70 metrų antenų masyvus, šis signalas susilpnėja iki maždaug $10^{-22}\text{ W}$ eilės galios. Būtent Doplerio poslinkio ir nešančiosios bangos fazės matavimai kartu su balistinės trajektorijos skaičiavimais leido tiksliai užfiksuoti vienos šviesos paros ribą, kol inžinieriai diagnozuoja telemetrijos moduliacijos sutrikimą.</p>
+          </div>
+
+          <div class="insight-box insight-ai">
+            <h4 class="insight-title"><span>◈</span> DI akimis: perspektyvos, tendencijos ir poveikis</h4>
+            <p>48 valandų dvipusio ryšio vėlavimas (RTT) ir ekstremalus signalo slopinimas paverčia „Voyager 1“ natūraliu bandymų poligonu ateities autonominėms gilaus kosmoso misijoms (tokioms kaip planuojamas „Interstellar Probe“ iki 1 000 AU). Esant dviejų parų reakcijos ciklui, tradicinis antžeminis komandų valdymas tampa neefektyvus – būsimi tarpžvaigždiniai aparatai privalės turėti radiacijai atsparius borto diagnostikos algoritmus, gebančius savarankiškai perkonfigūruoti maitinimo grandines ir atminties blokus be Žemės įsikišimo.</p>
+          </div>
+
+          <div class="insight-box insight-expert">
+            <h4 class="insight-title"><span>⚖</span> Realių ekspertų vertinimas</h4>
+            <p>Kosminių aparatų energetikos ir ryšių specialistai pabrėžia, kad pagrindinis „Voyager 1“ ribotumas nebėra atstumas, o plutonio-238 ($\text{}^{238}\text{Pu}$) radioizotopinių termoelektrinių generatorių (RTG) skilimas ir termoporų degradacija, kasmet sumažinanti elektros galią maždaug 4 vatais. Lapkričio 14 d. dingusi mokslinė telemetrija rodo, kad senstanti 1970-ųjų CMOS logika ir šiluminis režimas ties išjungtų šildytuvų riba kelia nuolatinę misijos pabaigos riziką dar prieš galutinai išsenkant energetiniam rezervui apie 2030 metus.</p>
+          </div>
+
+          <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKEiwcxbHyQARtnuDTMu5AbepdKX-8oz3EtSQrBRxq6GgcQKLM34aXUyC3YjXfzlM8piEb3Kuk-54TopjeiYnF3wdgobQNgyn8W2SlE9RG-16GMYIc1l1EiEfq4eOs9KfTwqSAjkL3hrhzcskUSalCzIr-CnCZmVYiNuCXc8LO7TX7e20zgMpIVXFU3HKUMBN7ELkCVPzpgw==" target="_blank" rel="noopener noreferrer" class="source-btn">Atverti šaltinį ↗</a>
+        </article>
+
+        <!-- Science Item 2 -->
+        <article class="article-card">
+          <div class="article-meta-top">
+            <span class="tag-chip">Glaciologija · Palydovinė lidometrija</span>
+            <span>MIT / WHOI · 2026-11-19</span>
+          </div>
+          <h3 class="article-title">MIT ir WHOI išanalizavo per 15 000 Antarktidos ledo skardžių: natūralus nuolaužų barjeras stabdo grandininę griūtį</h3>
+
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <span class="metric-label">Stebėta objektų</span>
+              <span class="metric-value">&gt; 15 000 ledo skardžių</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Matavimo instrumentas</span>
+              <span class="metric-value">NASA ICESat-2 (532 nm)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Teorinė kritinė riba</span>
+              <span class="metric-value">&gt; 100 m skardžio aukštis</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Stebėsenos periodas</span>
+              <span class="metric-value">4 metai (kas 3 mėn.)</span>
+            </div>
+          </div>
+
+          <figure class="tech-figure">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Antarktidos ledo skardžio mechaninės stabilizacijos ir ICESat-2 matavimų pjūvis">
+              <rect width="400" height="200" fill="var(--svg-bg)"/>
+              <!-- Satellite Laser -->
+              <rect x="296" y="12" width="76" height="20" rx="3" fill="var(--bg-elevated)" stroke="var(--svg-stroke)"/>
+              <text x="305" y="25" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5">ICESat-2</text>
+              <line x1="315" y1="32" x2="185" y2="75" stroke="var(--svg-accent-2)" stroke-dasharray="3,2" stroke-width="1.3"/>
+              <line x1="335" y1="32" x2="230" y2="112" stroke="var(--svg-accent-2)" stroke-dasharray="3,2" stroke-width="1.3"/>
+              <text x="255" y="58" fill="var(--svg-accent-2)" font-family="JetBrains Mono, monospace" font-size="7.5">532 nm lidaras</text>
+
+              <!-- Glacier Ice -->
+              <polygon points="16,42 186,58 196,156 16,165" fill="var(--bg-elevated)" stroke="var(--svg-accent-3)" stroke-width="1.5"/>
+              <text x="30" y="76" fill="var(--text-primary)" font-family="Inter, sans-serif" font-size="9" font-weight="600">Kontinentinis ledynas</text>
+              <text x="30" y="92" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="8">Aukštis H &gt; 100 m</text>
+              <!-- Shear arrow -->
+              <line x1="125" y1="86" x2="174" y2="86" stroke="var(--svg-accent-1)" stroke-width="2"/>
+              <polygon points="174,82 182,86 174,90" fill="var(--svg-accent-1)"/>
+              <text x="108" y="102" fill="var(--svg-accent-1)" font-family="Inter, sans-serif" font-size="7.5">Šlyties įtempis</text>
+
+              <!-- Sea Level & Melange -->
+              <line x1="192" y1="112" x2="384" y2="112" stroke="var(--svg-accent-3)" stroke-width="1.2"/>
+              <!-- Ice Melange blocks -->
+              <rect x="195" y="104" width="68" height="18" rx="2" fill="var(--olive-tint)" stroke="var(--svg-accent-2)" stroke-width="1.2"/>
+              <text x="202" y="98" fill="var(--svg-accent-2)" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">„Mélange“ sluoksnis</text>
+              <!-- Backpressure arrow -->
+              <line x1="255" y1="132" x2="204" y2="132" stroke="var(--svg-accent-2)" stroke-width="2"/>
+              <polygon points="204,128 196,132 204,136" fill="var(--svg-accent-2)"/>
+              <text x="260" y="135" fill="var(--text-primary)" font-family="Inter, sans-serif" font-size="8">Atraminis priešslėgis</text>
+
+              <!-- Bedrock with underwater ridge -->
+              <polygon points="16,165 160,158 196,144 235,168 384,175 384,192 16,192" fill="var(--svg-grid)" stroke="var(--svg-stroke)" stroke-width="1.2"/>
+              <text x="148" y="182" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">Povandeninis uolienų gūbrys (inkaravimo taškas)</text>
+            </svg>
+            <figcaption>4 pav. Antarktidos ledo skardžio stabilizacijos mechanizmas: hidrostatinis vandens slėgis, povandeninis gūbrys ir „mélange“ sluoksnis sustabdo grandininę MICI griūtį.</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p>Masačusetso technologijos instituto (MIT), Woods Hole okeanografijos instituto (WHOI) ir Mičigano universiteto mokslininkai (vad. Caroline Needell) pristatė ketverių metų trukmės empirinę daugiau nei 15 000 Antarktidos pakrantės ledo skardžių analizę, paremtą NASA „ICESat-2“ palydovinio lazerinio aukščiamačio duomenimis. Dešimtmečius jūros lygio kilimo prognozėse dominavo jūrinių ledo skardžių nestabilumo (MICI – <em>Marine Ice Cliff Instability</em>) hipotezė: manyta, kad ištirpus plūduriuojantiems šelfiniams ledynams ir atsidengus aukštesnėms nei 100 metrų ledo sienoms, ledas nebeatlaiko nuosavos gravitacinės masės sukeltų vidinių šlyties įtempių, lūžta ir atidengia dar aukštesnius žemyninius skardžius, taip sukeldamas nesustabdomą domino efekto atsitraukimą.</p>
+            <p>Kas tris mėnesius rinkti „ICESat-2“ topografiniai profiliai parodė dviprasmišką, bet struktūriškai svarbų dėsningumą: nors pirminis aukštų skardžių irimas vyksta sparčiau nei numatė ankstesni ledynų deformacijos modeliai, nė viename iš tirtų sektorių neužfiksuota nevaldoma grandininė griūtis. Po pirminio lūžio ledynų frontai persiformuoja į žemesnį, mechaniškai stabilesnį profilį. Tyrėjai nustatė tris fizinius stabdžius: atskilusių ledkalnių ir jūros ledo mišinį (pranc. <em>mélange</em>), kuris fiorduose sukuria kietą mechaninę atramą skardžio papėdei, aplinkinio jūros vandens hidrostatinį priešslėgį bei povandeninius uolienų gūbrius, į kuriuos įsirėmęs ledas stabilizuojasi.</p>
+          </div>
+
+          <div class="insight-box insight-ai">
+            <h4 class="insight-title"><span>◈</span> DI akimis: perspektyvos, tendencijos ir poveikis</h4>
+            <p>Šis tyrimas tiesiogiai koreguoja Tarpvyriausybinės klimato kaitos komisijos (IPCC) ekstremaliųjų („low-likelihood, high-impact“) jūros lygio kilimo scenarijų viršutinę ribą iki 2100 metų. Įtraukus empirinius „mélange“ klampumo ir batimetrijos apribojimus į skaitinius ledynų dinamikos modelius, pakrantės inžinerinės infrastruktūros (uostų bangolaužių, dambų ir branduolinių jėgainių aušinimo sistemų) projektuotojai gauna gerokai siauresnį ir tikslesnį prognozuojamo vandens lygio pasikliovimo intervalą.</p>
+          </div>
+
+          <div class="insight-box insight-expert">
+            <h4 class="insight-title"><span>⚖</span> Realių ekspertų vertinimas</h4>
+            <p>Glaciologai įspėja neinterpretuoti MICI hipotezės paneigimo kaip Antarktidos stabilumo garantijos. Ketverių metų (2019–2023 m.) stebėsenos langas yra trumpas geologiniu masteliu, o stabilizuojantis „mélange“ sluoksnis pats yra jautrus vandenynų šilimui: jei šiltos cirkumpoliarinės giluminės srovės iš apačios ištirpdys ledo nuolaužų kamštį atviresniuose Vakarų Antarktidos (pvz., Thwaites ledyno) baseinuose, mechaninė atrama gali išnykti sezoniškai, atnaujindama spartų ledo masės praradimą per įprastą bazinį slydimą.</p>
+          </div>
+
+          <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZiIoQ44V3XGGkOm4G5Xd3w_J6-r957-QPJRobJutS2TyGr6XfASdmyv4rlOlcR0X0MTadHyeR8OJ49LKifPw0UmHvOQ2JaWWMhPtkCPH5bRAMJx9O1sbYsg7gw3FWCJp0dGtDgRXuc-mmV28pT988B1MH" target="_blank" rel="noopener noreferrer" class="source-btn">Atverti šaltinį ↗</a>
+        </article>
+      </section>
+
+      <!-- 3. PRAMONĖ -->
+      <section id="pramone" class="news-section">
+        <div class="section-header">
+          <h2 class="section-title"><span class="section-index">03</span> Pramonė</h2>
+          <span class="section-count">2 naujienos</span>
+        </div>
+
+        <!-- Industry Item 1 -->
+        <article class="article-card">
+          <div class="article-meta-top">
+            <span class="tag-chip">Medžiagų inžinerija · Polimerai</span>
+            <span>Nortvilis, JAV · 2026-11-19</span>
+          </div>
+          <h3 class="article-title">„Cooper Standard“ serijinėje „Volvo EX60“ gamyboje įdiegė 100 % termoplastinį sandariklį „FlexiCore“: 44 % mažesnė masė be plieno</h3>
+
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <span class="metric-label">Masės sumažėjimas</span>
+              <span class="metric-value">iki -44 % (be metalo)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Surinkimo konvejeryje</span>
+              <span class="metric-value">-20 % montavimo laiko</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Medžiaginė struktūra</span>
+              <span class="metric-value">100 % TPV / TPO (perdirbama)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Serijinė platforma</span>
+              <span class="metric-value">Volvo Cars EX60</span>
+            </div>
+          </div>
+
+          <figure class="tech-figure">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tradicinio metalu armuoto EPDM ir FlexiCore termoplastinio sandariklio skerspjūvių palyginimas">
+              <rect width="400" height="200" fill="var(--svg-bg)"/>
+              <line x1="200" y1="12" x2="200" y2="188" stroke="var(--svg-stroke)" stroke-dasharray="3,3" stroke-width="1"/>
+
+              <!-- Left: Traditional EPDM + Steel -->
+              <text x="16" y="24" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">Tradicinis EPDM + plienas</text>
+              <!-- U-channel cross section -->
+              <path d="M 65 135 L 65 82 Q 65 65 82 65 L 108 65 Q 125 65 125 82 L 125 135" fill="none" stroke="var(--text-secondary)" stroke-width="12" stroke-linecap="round"/>
+              <!-- Inner steel wire -->
+              <path d="M 65 130 L 65 82 Q 65 65 82 65 L 108 65 Q 125 65 125 82 L 125 130" fill="none" stroke="var(--svg-accent-1)" stroke-width="3.5"/>
+              <!-- Bulb -->
+              <circle cx="95" cy="46" r="15" fill="none" stroke="var(--text-secondary)" stroke-width="5"/>
+              <text x="20" y="158" fill="var(--svg-accent-1)" font-family="Inter, sans-serif" font-size="8">▪ Plieninis armatūros karkasas</text>
+              <text x="20" y="172" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">▪ Vulkanizuota guma (neperdirbama)</text>
+
+              <!-- Right: FlexiCore TPV/TPO -->
+              <text x="214" y="24" fill="var(--svg-accent-2)" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">„FlexiCore“ 100 % termoplastikas</text>
+              <!-- U-channel TPV -->
+              <path d="M 265 135 L 265 82 Q 265 65 282 65 L 308 65 Q 325 65 325 82 L 325 135" fill="none" stroke="var(--svg-accent-2)" stroke-width="10" stroke-linecap="round"/>
+              <!-- Corrugated Polymer Carrier representation -->
+              <path d="M 265 126 L 265 82 Q 265 65 282 65 L 308 65 Q 325 65 325 82 L 325 126" fill="none" stroke="var(--text-primary)" stroke-dasharray="4,3" stroke-width="2.5"/>
+              <!-- Bulb -->
+              <circle cx="295" cy="46" r="15" fill="none" stroke="var(--svg-accent-2)" stroke-width="4"/>
+              <text x="214" y="158" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8">-44 % masės | -20 % montavimas</text>
+              <text x="214" y="172" fill="var(--svg-accent-2)" font-family="Inter, sans-serif" font-size="8">▪ Gofruotas polimerinis nešiklis</text>
+              <text x="214" y="185" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">▪ Be vulkanizacijos ir tirpiklių</text>
+            </svg>
+            <figcaption>5 pav. Kėbulo sandariklių profilio skerspjūvis: plieninio įdėklo ir EPDM vulkanizacijos pakeitimas gofruotu termoplastiniu nešikliu („Volvo EX60“).</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p>Automobilių komponentų gamintoja „Cooper Standard“ paskelbė serijinėje „Volvo Cars EX60“ elektromobilių gamyboje įdiegusi termoplastinę kėbulo sandarinimo technologiją „FlexiCore“, kuri lapkričio 19 d. pelnė Plastikų inžinierių draugijos (SPE) 2026 m. automobilių inovacijų įvertinimą procesų ir surinkimo kategorijoje. Dešimtmečius automobilių durų, bagažinių ir variklio gaubtų dinaminiai sandarikliai buvo gaminami iš etileno-propileno-dieno monomero (EPDM) gumos, sutvirtintos štampuota plienine juosta arba pintos vielos šerdimi, kad profilis tvirtai laikytųsi ant kėbulo flanšo.</p>
+            <p>„FlexiCore“ architektūroje metalinė armatūra ir termoreaktyvi guma pakeistos patentuotu gofruotu struktūriniu termoplastiko nešikliu (angl. <em>corrugated thermoplastic carrier</em>), koekstruzijos būdu sujungtu su termoplastinio elastomero (TPV/TPO) sandarinimo lūpomis. Atsisakius metalo, bendra sandarinimo perimetro masė sumažėjo iki 44 %, o visas mazgas tapo 100 % mechaniškai perdirbamas be brangaus plieno ir gumos atskyrimo ciklo automobilio eksploatacijos pabaigoje. Gamybos linijoje eliminuotos energijai imlios EPDM vulkanizacijos krosnys bei tirpiklinio antifrikcinio sluoksnio purškimas, o surinkimo konvejeryje sumažėjusi užspaudimo jėga pagreitino montavimą ant durelių, priekinės bagažinės (<em>frunk</em>) ir galinio dangčio iki 20 %.</p>
+          </div>
+
+          <div class="insight-box insight-ai">
+            <h4 class="insight-title"><span>◈</span> DI akimis: perspektyvos, tendencijos ir poveikis</h4>
+            <p>Perėjimas prie monomedžiaginių polimerinių mazgų tiesiogiai atliepia griežtėjantį ES Eksploatuoti netinkamų transporto priemonių (ELV) reglamentą, reikalaujantį uždaro ciklo plastikų perdirbimo. Be to, elektromobiliuose, kur nėra vidaus degimo variklio triukšmo, durų sandariklių profilio geometrijos tikslumas tiesiogiai lemia salono aeroakustiką (NVH) važiuojant >110 km/h greičiu – termoplastinė ekstruzija pasižymi mažesniu matmenų nuokrypiu nei aukštoje temperatūroje kietinama EPDM guma.</p>
+          </div>
+
+          <div class="insight-box insight-expert">
+            <h4 class="insight-title"><span>⚖</span> Realių ekspertų vertinimas</h4>
+            <p>Polimerų mechanikos ir kėbulų inžinieriai atkreipia dėmesį į ilgalaikį liekamosios gniuždymo deformacijos (angl. <em>compression set</em>) bei šliaužimo (<em>creep</em>) rodiklį ekstremaliose temperatūrose (nuo -40 °C iki +85 °C). Tradicinė skersiniais ryšiais susiūta (vulkanizuota) EPDM guma po 10 metų eksploatacijos geriau atstato pirminę formą nei termoplastiniai vulkanizatai, todėl beplienio gofruoto flanšo sukibimo jėgos išlaikymas po tūkstančių durų uždarymo ciklų šiauriniame klimate bus pagrindinis šios konstrukcijos ilgaamžiškumo egzaminas.</p>
+          </div>
+
+          <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9f4ZOFGf0LxHZbzeVXJydFf444dLRoLUQFFj7Fpu7WkUHxntOpm72AUtv5eKi5TvIy6oeojVdtHKhyNEJ8Z2Riw_Lm_R5Nz9rBL72lT657EqzY95ZjaGg4MPX_gg6bzx6TdNYgX_HOC-mrPp-ORVBbbzX7ZkDHNklnptqcLXOMsfeOynKkz-rGWFnc2gwdFEUPSacXAsQYmnUce-K9F4oUsV2ew2LCZ7vaSqx_bN_Xdz0c0oBcwkdBNj0JcAk3qIL5msanIbPfGzVq2Lh36xxffxXeUJ61bYbbuRIDfsi3BU=" target="_blank" rel="noopener noreferrer" class="source-btn">Atverti šaltinį ↗</a>
+        </article>
+
+        <!-- Industry Item 2 -->
+        <article class="article-card">
+          <div class="article-meta-top">
+            <span class="tag-chip">Elektromobilumas · Štampavimas</span>
+            <span>Aurora, Kanada · 2026-11-19</span>
+          </div>
+          <h3 class="article-title">„Magna“ ir BMW serijiniai giliojo štampavimo baterijų korpusai „OptiForm“: +10 % naudingo tūrio be suvirinimo siūlių</h3>
+
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <span class="metric-label">Tūrio prieaugis</span>
+              <span class="metric-value">iki +10 % celių erdvės</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Gamybos procesas</span>
+              <span class="metric-value">OptiForm gilusis štampavimas</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Kampų sujungimas</span>
+              <span class="metric-value">Vientisas (be siūlių / varžtų)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Pramoninis partneris</span>
+              <span class="metric-value">BMW Group (PACE 2026)</span>
+            </div>
+          </div>
+
+          <figure class="tech-figure">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Magna OptiForm baterijos korpuso kampo geometrijos palyginimas su suvirinta konstrukcija">
+              <rect width="400" height="200" fill="var(--svg-bg)"/>
+              <line x1="200" y1="12" x2="200" y2="188" stroke="var(--svg-stroke)" stroke-dasharray="3,3" stroke-width="1"/>
+
+              <!-- Left: Conventional Welded Corner -->
+              <text x="14" y="24" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">Suvirintas kampas (daugiadalis)</text>
+              <path d="M 30 148 L 30 85 Q 30 42 73 42 L 168 42" fill="none" stroke="var(--text-secondary)" stroke-width="6"/>
+              <!-- Weld points -->
+              <circle cx="34" cy="72" r="4" fill="var(--svg-accent-1)"/>
+              <circle cx="58" cy="46" r="4" fill="var(--svg-accent-1)"/>
+              <!-- Battery cells inside leaving dead zone -->
+              <rect x="64" y="68" width="98" height="72" rx="2" fill="var(--svg-grid)" stroke="var(--svg-stroke)"/>
+              <text x="75" y="106" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="8.5">Celių masyvas</text>
+              <text x="16" y="168" fill="var(--svg-accent-1)" font-family="Inter, sans-serif" font-size="8">▪ Suvirinimo siūlės (nuotėkio rizika)</text>
+              <text x="16" y="182" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="8">▪ Prarastas tūris lenkimo spindulyje</text>
+
+              <!-- Right: OptiForm Deep-Drawn Single Piece -->
+              <text x="212" y="24" fill="var(--svg-accent-2)" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">„OptiForm“ vientisas štampas</text>
+              <path d="M 228 148 L 228 52 Q 228 42 238 42 L 372 42" fill="none" stroke="var(--svg-accent-2)" stroke-width="6"/>
+              <!-- Expanded Battery cells -->
+              <rect x="240" y="54" width="126" height="86" rx="2" fill="var(--olive-tint)" stroke="var(--svg-accent-2)" stroke-width="1.3"/>
+              <text x="255" y="96" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">Celių masyvas</text>
+              <text x="255" y="110" fill="var(--svg-accent-2)" font-family="JetBrains Mono, monospace" font-size="8.5">+10 % tūrio</text>
+              <text x="212" y="168" fill="var(--text-primary)" font-family="Inter, sans-serif" font-size="8">▪ Stačiakampis R_min be siūlių</text>
+              <text x="212" y="182" fill="var(--svg-accent-2)" font-family="Inter, sans-serif" font-size="8">▪ Aukštas hermetiškumas (IP67/69K)</text>
+            </svg>
+            <figcaption>6 pav. Elektromobilio baterijos korpuso kampo planas: „OptiForm“ gilusis štampavimas panaikina kampines siūles ir išplečia naudingą tūrį celių išdėstymui.</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p>Kanados automobilių inžinerijos ir gamybos grupė „Magna International“ lapkričio 19 d. pranešė kartu su „BMW“ pelniusi 2026 m. „Automotive News PACE Innovation Partnership“ įvertinimą už serijinę elektromobilių baterijų korpusų su „OptiForm“ galiniais gaubtais gamybą. Tradiciniuose aukštos įtampos akumuliatorių dėkluose gilių stačiakampių vonelių formavimas iš plieno ar aliuminio lakšto susiduria su metalo plyšimo ir raukšlėjimosi riba kampuose, todėl gamintojai priversti rinktis didelius lenkimo spindulius arba virinti korpusą iš kelių atskirų štampuotų ir presuotų profilių.</p>
+            <p>„Magna“ sukurtas daugiapakopis giliojo štampavimo procesas „OptiForm“ kontroliuoja lokalų lakštinio metalo plastinį tekėjimą štampo matricoje taip, kad iš vieno ruošinio būtų suformuoti vientisi, beveik stačiakampio skerspjūvio galiniai gaubtai su itin mažu kampiniu spinduliu. Atsisakius kampinių suvirinimo siūlių ir papildomų mechaninių tvirtinimo detalių, pasiekiami du išmatuojami inžineriniai rezultatai: sumažinama korpuso nesandarumo (drėgmės ir korozinio elektrolito patekimo) tikimybė ir iki 10 % padidinamas vidinis naudingas pakavimo tūris baterijų celėms, visiškai nekeičiant išorinių automobilio važiuoklės gabaritų.</p>
+          </div>
+
+          <div class="insight-box insight-ai">
+            <h4 class="insight-title"><span>◈</span> DI akimis: perspektyvos, tendencijos ir poveikis</h4>
+            <p>Šiuolaikinėse „Cell-to-Pack“ (CTP) ir struktūrinėse (pvz., BMW 46 mm cilindrinių celių „Neue Klasse“ kartos) baterijų architektūrose energetinio tankio augimas priklauso ne vien nuo katodo chemijos, bet ir nuo tūrinio pakavimo koeficiento. 10 % papildomo vidinio tūrio tame pačiame ratų bazės kontūre leidžia integruoti 6–9 kWh papildomos energijos be naujų kėbulo štampų projektavimo, kartu sutrumpinant suvirinimo robotų linijos ciklo trukmę ir rentgeno ar helio nuotėkio patikros sąnaudas.</p>
+          </div>
+
+          <div class="insight-box insight-expert">
+            <h4 class="insight-title"><span>⚖</span> Realių ekspertų vertinimas</h4>
+            <p>Metalo formavimo technologai pažymi, kad itin gilus štampavimas su minimaliu kampo spinduliu reikalauja griežtos metalurginės ruošinio kontrolės (vienodos grūdelių struktūros ir riboto stiprio tempimui dispersijos) bei brangių kietmetalio štampų su sudėtingu tepimo režimu, nes priešingu atveju kampinėse zonose sienelė suplonėja virš leistinų normų. Be to, monolitinis štampuotas korpusas po nedidelio dugno smūgio į kelio kliūtį dažniausiai yra neremontuotinas dalimis ir reikalauja viso korpuso keitimo.</p>
+          </div>
+
+          <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnheTlGK_og_7JQY1IqE0-EX_pou3DQHYhy7LbYtVsMukjIkVXQ8Yu8HSG2ghb6fmrR2ZCegs4AcmU65dtQFhd-JWm2rGcZQeDxwPCXluu8MnJM6F7RmD1elVRlqihBhqoc4Di8QkhoZiGIUhpR0dtooqIlVcrZAbAzZjtu1PXSDmIKDO8aCyXn6yRhj7foyPS-KKcxALs3khgeQg48XkLtvi4fNXfu2w=" target="_blank" rel="noopener noreferrer" class="source-btn">Atverti šaltinį ↗</a>
+        </article>
+      </section>
+
+      <!-- 4. SUTELKTINIS FINANSAVIMAS (KICKSTARTER) -->
+      <section id="kickstarter" class="news-section">
+        <div class="section-header">
+          <h2 class="section-title"><span class="section-index">04</span> Sutelktinis finansavimas</h2>
+          <span class="section-count">2 fiziniai prototipai</span>
+        </div>
+
+        <!-- Crowdfunding Item 1 -->
+        <article class="article-card">
+          <div class="article-meta-top">
+            <span class="tag-chip">Optinė metrologija · 3D skeneris</span>
+            <span>Kickstarter · Startavo 2026-11-18</span>
+          </div>
+          <h3 class="article-title">„Revopoint MIRACO 2“ autonominis 3D skeneris: 49 mėlynojo lazerio linijos, fotogrametrija ir 6 branduolių NPU 960 g korpuse</h3>
+
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <span class="metric-label">Optika ir sparta</span>
+              <span class="metric-value">34+15 lazerio lin. · 10M tšk./s</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Borto skaičiavimai</span>
+              <span class="metric-value">8-core CPU + 6-core NPU</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Masė / RGB kamera</span>
+              <span class="metric-value">960 g · 48 MP (3DGS 1:1)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Kaina / Finansavimas</span>
+              <span class="metric-value">nuo $1 425 (&gt;1 649 % tikslo)</span>
+            </div>
+          </div>
+
+          <figure class="tech-figure">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Revopoint MIRACO 2 optinės metrologijos ir borto skaičiavimo grandinės schema">
+              <rect width="400" height="200" fill="var(--svg-bg)"/>
+              <!-- Scanner Body -->
+              <rect x="16" y="28" width="152" height="144" rx="8" fill="var(--bg-elevated)" stroke="var(--svg-stroke)" stroke-width="1.5"/>
+              <text x="28" y="47" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">MIRACO 2 (960 g)</text>
+
+              <!-- Sensors inside body -->
+              <circle cx="44" cy="76" r="11" fill="none" stroke="var(--svg-accent-3)" stroke-width="1.8"/>
+              <text x="62" y="74" fill="var(--svg-accent-3)" font-family="JetBrains Mono, monospace" font-size="7.5">Mėlynasis lazeris</text>
+              <text x="62" y="84" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7">34 kryžm. + 15 lyg.</text>
+
+              <circle cx="44" cy="112" r="9" fill="none" stroke="var(--svg-accent-1)" stroke-width="1.6"/>
+              <text x="62" y="110" fill="var(--svg-accent-1)" font-family="JetBrains Mono, monospace" font-size="7.5">IR struktūrinė šv.</text>
+              <text x="62" y="120" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7">+ Fotogrametrija</text>
+
+              <circle cx="44" cy="146" r="9" fill="none" stroke="var(--svg-accent-2)" stroke-width="1.6"/>
+              <text x="62" y="149" fill="var(--svg-accent-2)" font-family="JetBrains Mono, monospace" font-size="7.5">48 MP RGB kamera</text>
+
+              <!-- Laser projection cone -->
+              <polygon points="168,68 238,38 238,108 168,84" fill="rgba(109, 157, 197, 0.14)" stroke="var(--svg-accent-3)" stroke-dasharray="3,2" stroke-width="1"/>
+
+              <!-- Right side processing pipeline -->
+              <rect x="242" y="28" width="142" height="42" rx="4" fill="none" stroke="var(--svg-accent-3)" stroke-width="1.2"/>
+              <text x="250" y="45" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">Srautas: 10 mln. tšk./s</text>
+              <text x="250" y="59" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="7.5">6 skenavimo režimai</text>
+
+              <line x1="313" y1="70" x2="313" y2="84" stroke="var(--text-secondary)" stroke-width="1.2"/>
+
+              <rect x="242" y="84" width="142" height="42" rx="4" fill="var(--olive-tint)" stroke="var(--svg-accent-2)" stroke-width="1.2"/>
+              <text x="250" y="101" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">8× CPU + 6× NPU</text>
+              <text x="250" y="115" fill="var(--text-secondary)" font-family="Inter, sans-serif" font-size="7.5">Autonominis tinklo jungimas</text>
+
+              <line x1="313" y1="126" x2="313" y2="140" stroke="var(--text-secondary)" stroke-width="1.2"/>
+
+              <rect x="242" y="140" width="142" height="32" rx="4" fill="var(--burgundy-tint)" stroke="var(--svg-accent-1)" stroke-width="1.2"/>
+              <text x="250" y="159" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8">1:1 3DGS ir STL/PLY/OBJ</text>
+            </svg>
+            <figcaption>7 pav. „Revopoint MIRACO 2“ hibridinis optinis masyvas ir vidinio apdorojimo architektūra be išorinio kompiuterio.</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p>Lapkričio 18 d. „Kickstarter“ platformoje pristatytas naujos kartos autonominis metrologinis 3D skeneris „Revopoint MIRACO 2“ per pirmąsias dvi paras viršijo 1 649 % pradinio finansavimo tikslo (gamintojas jau yra serijiniu būdu išleidęs ankstesnes „MIRACO“ ir „MetroX“ sistemas, o kampanijoje demonstruojami pilnai veikiantys pavyzdžiai). Pagrindinis konstrukcinis pokytis – į 960 gramų sveriantį rankinį korpusą su atlenkiamu jutikliniu ekranu pirmą kartą integruotas daugiakanalis mėlynojo lazerio šaltinis šalia infraraudonųjų spindulių (IR) struktūrinės šviesos ir fotogrametrinės metrologijos.</p>
+            <p>Optinė sistema palaiko šešis darbo režimus: 34 kryžmines mėlynojo lazerio linijas greitam blizgių ar juodų metalinių paviršių fiksavimui be matiškumo purškiklio, 15 lygiagrečių linijų smulkioms briaunoms, vienos linijos režimą gilioms kiaurymėms ir angoms, IR struktūrinę šviesą dideliems objektams ar žmonių kūnui bei koduotų žymeklių fotogrametriją tūriniam tikslumui stabilizuoti. Duomenys renkami iki 10 milijonų taškų per sekundę sparta kartu su 48 MP RGB tekstūrų kamera. Vidinis 8 branduolių centrinis procesorius ir 6 branduolių neuroninis koprocesorius (NPU) tiesiogiai įrenginyje atlieka DI objektų segmentavimą bei generuoja tikrojo 1:1 mastelio „3D Gaussian Splatting“ (3DGS) erdvines scenas. Ankstyvojo užsakymo („Super Early Bird“) kaina prasideda nuo 1 425 USD (planuojama mažmeninė kaina – apie 2 299 USD).</p>
+          </div>
+
+          <div class="insight-box insight-ai">
+            <h4 class="insight-title"><span>◈</span> DI akimis: perspektyvos, tendencijos ir poveikis</h4>
+            <p>Iki šiol kelių dešimčių mėlynojo lazerio linijų skeneriai reikalavo laidinio ryšio su nešiojamuoju kompiuteriu, turinčiu diskretinę „NVIDIA RTX“ klasės vaizdo plokštę taškų debesies registravimui realiuoju laiku. Perkėlus šį skaičiavimą į energetiškai efektyvų ARM/NPU mazgą ir pridėjus 1:1 mastelio 3DGS eksportą, lauko inžinerijoje (pramoninių vamzdynų revizijoje, aviacijos detalių defektoskopijoje, paveldosaugoje) panaikinamas sudėtingas nešiojamųjų darbo stočių ir maitinimo kabelių poreikis.</p>
+          </div>
+
+          <div class="insight-box insight-expert">
+            <h4 class="insight-title"><span>⚖</span> Realių ekspertų vertinimas</h4>
+            <p>Metrologijos ir atvirkštinės inžinerijos praktikai atkreipia dėmesį į šiluminį ir atminties ribotumą kompaktiškame 960 g korpuse: intensyvus 10 mln. taškų/s lazerinio srauto apdorojimas įkaitina vidinį važiuoklės rėmą, o bet koks submikroninis optinės bazės (atstumo tarp projektoriaus ir kamerų) terminis plėtimasis be periodinio perkalibravimo blogina metrologinį tikslumą. Be to, skenuojant didelės apimties mazgus maksimalia poligonų raiška, vidinės RAM ir baterijos resursai išlieka gerokai kuklesni nei stacionarių kompiuterinių „Revo Scan 6“ darbo vietų.</p>
+          </div>
+
+          <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHVhdKBvrSGdPFhJsjwABU5eCP1fb_bDYjmphoFx1BYm1LYr31aKmUH5ObgRg2S6o1noss2e7hsJGl8BsxhSwgGPpxyYzkvzkrnHjyp2XfudrW6O8ZFZvR6RBceSzN8ZEyUpbAu0olLvZ3l39u3pJzaz3t3PcPouA59vaRO7u7Lbfmf4Ft2JUZg1IHw_ngJhUQgAue9tnttitl" target="_blank" rel="noopener noreferrer" class="source-btn">Atverti šaltinį ↗</a>
+        </article>
+
+        <!-- Crowdfunding Item 2 -->
+        <article class="article-card">
+          <div class="article-meta-top">
+            <span class="tag-chip">Serverių architektūra · Modulinis NAS</span>
+            <span>Kickstarter · Nepriklausomi prototipų testai</span>
+          </div>
+          <h3 class="article-title">„Beelink ME Pro“ modulinis tinklo kaupiklis: ištraukiamas procesoriaus stalčius, 136 TB talpa ir iki 86 TOPS aliuminio korpuse</h3>
+
+          <div class="metrics-strip">
+            <div class="metric-item">
+              <span class="metric-label">Gabaritai ir masė</span>
+              <span class="metric-value">165×121×185 mm · 2,4 kg</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Duomenų masyvas</span>
+              <span class="metric-value">4× SATA + 3× M.2 (136 TB)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Keičiamas modulis</span>
+              <span class="metric-value">Intel N95/i5 arba Ryzen AI</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Tinklas / Kaina</span>
+              <span class="metric-value">10GbE LAN · ~$300–$499</span>
+            </div>
+          </div>
+
+          <figure class="tech-figure">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Beelink ME Pro frezuoto aliuminio korpuso ir ištraukiamo skaičiavimo modulio brėžinys">
+              <rect width="400" height="200" fill="var(--svg-bg)"/>
+              <!-- Main CNC Aluminum Chassis -->
+              <rect x="24" y="22" width="192" height="156" rx="6" fill="var(--bg-elevated)" stroke="var(--svg-stroke)" stroke-width="1.8"/>
+              <text x="34" y="40" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700">CNC Aliuminis (165×121×185 mm)</text>
+
+              <!-- 4 SATA Bays -->
+              <rect x="36" y="50" width="36" height="68" rx="2" fill="var(--svg-grid)" stroke="var(--svg-accent-3)"/>
+              <rect x="78" y="50" width="36" height="68" rx="2" fill="var(--svg-grid)" stroke="var(--svg-accent-3)"/>
+              <rect x="120" y="50" width="36" height="68" rx="2" fill="var(--svg-grid)" stroke="var(--svg-accent-3)"/>
+              <rect x="162" y="50" width="36" height="68" rx="2" fill="var(--svg-grid)" stroke="var(--svg-accent-3)"/>
+              <text x="48" y="88" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8">4× SATA + 3× M.2 NVMe</text>
+              <text x="66" y="102" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7.5">Bendra talpa iki 136 TB</text>
+
+              <!-- Bottom Drawer Slot & Sliding Compute Module -->
+              <rect x="36" y="130" width="180" height="36" rx="3" fill="var(--svg-bg)" stroke="var(--svg-stroke)" stroke-dasharray="3,2"/>
+              <rect x="148" y="128" width="228" height="40" rx="4" fill="var(--olive-tint)" stroke="var(--svg-accent-2)" stroke-width="1.6"/>
+              <text x="158" y="145" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">Ištraukiamas CPU/NPU stalčius</text>
+              <text x="158" y="159" fill="var(--svg-accent-2)" font-family="JetBrains Mono, monospace" font-size="7.5">iki 96 GB DDR5 | 10GbE | 86 TOPS</text>
+
+              <!-- Pull arrow -->
+              <line x1="340" y1="114" x2="374" y2="114" stroke="var(--svg-accent-1)" stroke-width="2"/>
+              <polygon points="374,110 382,114 374,118" fill="var(--svg-accent-1)"/>
+              <text x="234" y="117" fill="var(--svg-accent-1)" font-family="Inter, sans-serif" font-size="8">Modulinis keitimas</text>
+
+              <!-- Specs Callout Top Right -->
+              <rect x="232" y="24" width="152" height="74" rx="4" fill="none" stroke="var(--svg-stroke)"/>
+              <text x="240" y="41" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">Procesorių parinktys:</text>
+              <text x="240" y="55" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7.5">• Intel N95 / N150 (Home)</text>
+              <text x="240" y="68" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7.5">• Core i5-13500H (12 br.)</text>
+              <text x="240" y="81" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="7.5">• AMD Ryzen AI 350 / 470</text>
+            </svg>
+            <figcaption>8 pav. „Beelink ME Pro“ mechaninė schema: viršutinis duomenų kaupiklių blokas ir apatinis ištraukiamas skaičiavimo mazgas.</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p>Mini kompiuterių gamintoja „Beelink“ tęsia iki gruodžio 5 d. vyksiančią modulinio tinklo duomenų kaupiklio (NAS) „Beelink ME Pro“ sutelktinio finansavimo kampaniją, kurios fiziniai prototipai („Home NAS“ ir „Creator Edition“) pastarosiomis dienomis buvo nepriklausomai išbandyti techninės įrangos laboratorijose ir apžvalgose. Įrenginys suprojektuotas vientisame CNC staklėmis frezuoto aliuminio korpuse, kurio matmenys siekia 165 × 121 × 185 mm, o masė be diskų – 2,4 kg (apie 50 % mažesnis tūris nei standartinių keturių 3,5 colio stalčių plastikinių NAS sistemų). Duomenų saugojimo posistemę sudaro keturi SATA lizdai ir trys M.2 NVMe PCIe lizdai, palaikantys iki 136 TB bendrą talpą.</p>
+            <p>Pagrindinis inžinerinis sprendimas – apatinėje korpuso dalyje įrengtas ištraukiamas stalčiaus tipo skaičiavimo modulis, sujungtas su diskų magistrale per didelio tankio jungtį. Vartotojas gali pasirinkti arba vėliau pakeisti tik procesoriaus stalčių: nuo bazinių mažų sąnaudų „Intel Processor N95 / N150“ ar 12 branduolių „Intel Core i5-13500H“ (su „QuickSync“ aparatiniu vaizdo transkodavimu) iki „AMD Ryzen AI 9 / AI 350 / AI 470“ variantų, pasiekiančių iki 86 TOPS suminį dirbtinio intelekto našumą ir palaikančių iki 96 GB DDR5 operatyviosios atminties. Tinklo sąsają užtikrina 10GbE LAN prievadas, o programinę aplinką – „FygoOS“ (su galimybe diegti „TrueNAS“ ar „Proxmox“). Kampanijos kainodara svyruoja apie 300–499 USD priklausomai nuo pasirinkto procesoriaus modulio.</p>
+          </div>
+
+          <div class="insight-box insight-ai">
+            <h4 class="insight-title"><span>◈</span> DI akimis: perspektyvos, tendencijos ir poveikis</h4>
+            <p>Namų ir smulkiojo verslo serverių rinkoje ryškėja dvi nesuderinamos gyvavimo trukmės kreivės: mechaniniai SATA diskai ir korpusas tarnauja 7–10 metų, tuo tarpu integruoti NPU ir medijos dekodavimo varikliai moraliai pasensta per 2–3 metus. Stalčiaus tipo pagrindinės plokštės atskyrimas nuo saugyklos korpuso sumažina elektronikos atliekų kiekį ir leidžia pigiai paversti duomenų archyvą vietiniu nuotraukų indeksavimo, RAG paieškos bei išmaniųjų namų automatizavimo mazgu.</p>
+          </div>
+
+          <div class="insight-box insight-expert">
+            <h4 class="insight-title"><span>⚖</span> Realių ekspertų vertinimas</h4>
+            <p>Nepriklausomi testuotojai ir serverių inžinieriai išskiria kelis konkrečius kompromisus. Pirma, patentuota vidinė stalčiaus jungtis reiškia, kad ateities atnaujinimai visiškai priklausys nuo to, ar „Beelink“ po trejų metų vis dar gamins suderinamus modulius. Antra, kompaktiškas korpusas turi tik vieną 10GbE tinklo lizdą (nėra antrojo prievado tinklo agregavimui ar pertekliui), o bandant lokaliai vykdyti didesnius (pvz., 30 mlrd. parametrų) kalbos modelius, dviejų kanalų DDR5 atminties pralaidumas apriboja generavimo spartą iki 5–10 žetonų per sekundę. Taip pat ankstyvose kampanijos specifikacijų lentelėse pastebėta netikslumų painiojant DDR4 ir DDR5 atminties tipus tarp skirtingų procesorių kartų.</p>
+          </div>
+
+          <a href="https://www.kickstarter.com/projects/1086667996/beelink-me-pro-nas" target="_blank" rel="noopener noreferrer" class="source-btn">Atverti šaltinį ↗</a>
+        </article>
+      </section>
+
+      <!-- 5. TECHNINIŲ PARAMETRŲ SUVESTINĖ (Mobile Cards) -->
+      <section id="suvestine" class="news-section">
+        <div class="section-header">
+          <h2 class="section-title"><span class="section-index">05</span> Parametrų suvestinė</h2>
+          <span class="section-count">8 objektai</span>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-head">
+              <span class="summary-name">TQI 2.0 &amp; STORM (SC26)</span>
+              <span class="summary-cat">TECHNOLOGIJOS</span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span class="summary-key">Pagrindinis rodiklis</span><span class="summary-val">1,456 EFLOP/s (FP64)</span></div>
+              <div class="summary-row"><span class="summary-key">Mišrus tikslumas</span><span class="summary-val">5,626 EFLOP/s</span></div>
+              <div class="summary-row"><span class="summary-key">Architektūra</span><span class="summary-val">20 480 mazgų / O(N) dėmesys</span></div>
+              <div class="summary-row"><span class="summary-key">Stadija</span><span class="summary-val">Eksaskalės produkcija</span></div>
+            </div>
+          </div>
+
+          <div class="summary-card burgundy-top">
+            <div class="summary-head">
+              <span class="summary-name">JAV BIS 16 nm taisyklė / TSMC</span>
+              <span class="summary-cat">TECHNOLOGIJOS</span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span class="summary-key">Kontrolės riba</span><span class="summary-val">&le; 16 nm FinFET (nuo 7 nm)</span></div>
+              <div class="summary-row"><span class="summary-key">Taikymo sritis</span><span class="summary-val">Liejyklos + IaaS debesija</span></div>
+              <div class="summary-row"><span class="summary-key">Rinkos reakcija</span><span class="summary-val">TSM $352,09 (-2,93 %)</span></div>
+              <div class="summary-row"><span class="summary-key">Įsigaliojimas</span><span class="summary-val">2026-11-19</span></div>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-head">
+              <span class="summary-name">NASA „Voyager 1“</span>
+              <span class="summary-cat">MOKSLAS</span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span class="summary-key">Nuotolis nuo Žemės</span><span class="summary-val">25 902 068 356 km (1 šv. para)</span></div>
+              <div class="summary-row"><span class="summary-key">Greitis / RTT</span><span class="summary-val">61 155 km/h / 48 val.</span></div>
+              <div class="summary-row"><span class="summary-key">Radijo grandinė</span><span class="summary-val">8,4 GHz X-band (~20 W → 10⁻²² W)</span></div>
+              <div class="summary-row"><span class="summary-key">Maitinimas</span><span class="summary-val">3× Pu-238 RTG (nuo 1977 m.)</span></div>
+            </div>
+          </div>
+
+          <div class="summary-card burgundy-top">
+            <div class="summary-head">
+              <span class="summary-name">MIT / WHOI ledo skardžių tyrimas</span>
+              <span class="summary-cat">MOKSLAS</span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span class="summary-key">Imties dydis</span><span class="summary-val">&gt; 15 000 Antarktidos skardžių</span></div>
+              <div class="summary-row"><span class="summary-key">Jutiklis</span><span class="summary-val">ICESat-2 (532 nm lidaras)</span></div>
+              <div class="summary-row"><span class="summary-key">Mechaninis slopinimas</span><span class="summary-val">„Mélange“ + uolienų gūbriai</span></div>
+              <div class="summary-row"><span class="summary-key">Išvada</span><span class="summary-val">MICI grandininė griūtis nefiksuota</span></div>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-head">
+              <span class="summary-name">Cooper Standard „FlexiCore“</span>
+              <span class="summary-cat">PRAMONĖ</span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span class="summary-key">Masės pokytis</span><span class="summary-val">iki -44 % (pakeitus plieną)</span></div>
+              <div class="summary-row"><span class="summary-key">Medžiagos</span><span class="summary-val">100 % TPV/TPO koekstruzija</span></div>
+              <div class="summary-row"><span class="summary-key">Surinkimo našumas</span><span class="summary-val">-20 % montavimo trukmė</span></div>
+              <div class="summary-row"><span class="summary-key">Serijinis diegimas</span><span class="summary-val">Volvo Cars EX60</span></div>
+            </div>
+          </div>
+
+          <div class="summary-card burgundy-top">
+            <div class="summary-head">
+              <span class="summary-name">Magna &amp; BMW „OptiForm“</span>
+              <span class="summary-cat">PRAMONĖ</span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span class="summary-key">Naudingo tūrio prieaugis</span><span class="summary-val">iki +10 % celių erdvės</span></div>
+              <div class="summary-row"><span class="summary-key">Technologija</span><span class="summary-val">Daugiapakopis gilusis štampavimas</span></div>
+              <div class="summary-row"><span class="summary-key">Konstrukcija</span><span class="summary-val">Vientisi kampai be suvirinimo</span></div>
+              <div class="summary-row"><span class="summary-key">Stadija</span><span class="summary-val">Serijinė EV gamyba (PACE 2026)</span></div>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-head">
+              <span class="summary-name">Revopoint MIRACO 2</span>
+              <span class="summary-cat">KICKSTARTER</span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span class="summary-key">Optika / Sparta</span><span class="summary-val">34+15 lazerio lin., IR, 10M tšk./s</span></div>
+              <div class="summary-row"><span class="summary-key">Procesorius / Masė</span><span class="summary-val">8× CPU + 6× NPU / 960 g</span></div>
+              <div class="summary-row"><span class="summary-key">Kaina (Early Bird)</span><span class="summary-val">$1 425 USD (mažmeninė ~$2 299)</span></div>
+              <div class="summary-row"><span class="summary-key">Prototipo statusas</span><span class="summary-val">Veikiantis (&gt;1 649 % finansuota)</span></div>
+            </div>
+          </div>
+
+          <div class="summary-card burgundy-top">
+            <div class="summary-head">
+              <span class="summary-name">Beelink ME Pro AI NAS</span>
+              <span class="summary-cat">KICKSTARTER</span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span class="summary-key">Korpusas / Talpa</span><span class="summary-val">165×121×185 mm (2,4 kg) / 136 TB</span></div>
+              <div class="summary-row"><span class="summary-key">Skaičiavimo stalčius</span><span class="summary-val">N95, i5-13500H arba Ryzen AI (86 TOPS)</span></div>
+              <div class="summary-row"><span class="summary-key">Atmintis ir tinklas</span><span class="summary-val">iki 96 GB DDR5 · 1× 10GbE LAN</span></div>
+              <div class="summary-row"><span class="summary-key">Kaina / Statusas</span><span class="summary-val">~$300–$499 · Išbandyti prototipai</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>INŽINERINIS DIENORAŠTIS · 2026-11-20</div>
+      <div style="margin-top:4px;">Optimizuota „Google Pixel 10 Pro XL“ OLED ekranui · Be rinkodaros triukšmo</div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const htmlEl = document.documentElement;
+      const themeBtn = document.getElementById('theme-toggle');
+      const metaTheme = document.getElementById('meta-theme-color');
+      const fontDecBtn = document.getElementById('font-dec');
+      const fontIncBtn = document.getElementById('font-inc');
+      const progressBar = document.getElementById('reading-progress');
+      const navPills = document.querySelectorAll('.nav-pill');
+      const sections = document.querySelectorAll('main section[id]');
+
+      // Font scaling (14px to 21px)
+      let currentFontSize = 16;
+      const MIN_FONT = 13;
+      const MAX_FONT = 21;
+
+      try {
+        const savedTheme = localStorage.getItem('id_theme_2026');
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          setTheme(savedTheme);
+        }
+        const savedFont = parseInt(localStorage.getItem('id_fontsize_2026'), 10);
+        if (!isNaN(savedFont) && savedFont >= MIN_FONT && savedFont <= MAX_FONT) {
+          currentFontSize = savedFont;
+          htmlEl.style.setProperty('--base-font-size', currentFontSize + 'px');
+        }
+      } catch (e) {}
+
+      function setTheme(mode) {
+        htmlEl.setAttribute('data-theme', mode);
+        if (mode === 'light') {
+          themeBtn.textContent = '☾';
+          metaTheme.setAttribute('content', '#F3F2EE');
+        } else {
+          themeBtn.textContent = '☀';
+          metaTheme.setAttribute('content', '#0D0E12');
+        }
+        try {
+          localStorage.setItem('id_theme_2026', mode);
+        } catch (e) {}
+      }
+
+      themeBtn.addEventListener('click', function () {
+        const current = htmlEl.getAttribute('data-theme') || 'dark';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      fontDecBtn.addEventListener('click', function () {
+        if (currentFontSize > MIN_FONT) {
+          currentFontSize -= 1;
+          htmlEl.style.setProperty('--base-font-size', currentFontSize + 'px');
+          try { localStorage.setItem('id_fontsize_2026', String(currentFontSize)); } catch (e) {}
+        }
+      });
+
+      fontIncBtn.addEventListener('click', function () {
+        if (currentFontSize < MAX_FONT) {
+          currentFontSize += 1;
+          htmlEl.style.setProperty('--base-font-size', currentFontSize + 'px');
+          try { localStorage.setItem('id_fontsize_2026', String(currentFontSize)); } catch (e) {}
+        }
+      });
+
+      // Reading progress & Active Nav Pill update
+      function updateScrollState() {
+        const scrollTop = window.scrollY || htmlEl.scrollTop;
+        const docHeight = htmlEl.scrollHeight - htmlEl.clientHeight;
+        const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+        progressBar.style.width = pct.toFixed(2) + '%';
+
+        let activeId = 'tldr';
+        const offsetTrigger = scrollTop + 145;
+        sections.forEach(function (sec) {
+          if (sec.offsetTop <= offsetTrigger) {
+            activeId = sec.id;
+          }
+        });
+
+        navPills.forEach(function (pill) {
+          const href = pill.getAttribute('href');
+          if (href === '#' + activeId) {
+            if (!pill.classList.contains('active')) {
+              pill.classList.add('active');
+              pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+            }
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateScrollState, { passive: true });
+      window.addEventListener('resize', updateScrollState, { passive: true });
+      updateScrollState();
+    })();
+  </script>
+</body>
+</html>
