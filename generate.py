@@ -12,7 +12,7 @@ def main():
 
     prompt = f"""
 Šiandienos data: {date_lt}.
-Parenk glaustą, bet techniškai tikslų technologijų, mokslo pasiekimų, pramonės inovacijų ir sutelktinio finansavimo naujienlaiškį iš pastarosios paros įvykių ir pateik jį kaip vieno failo HTML5 dokumentą (nuo <!DOCTYPE html> iki </html>) lietuvių kalba, optimizuotą skaitymui „Google Pixel 10 Pro XL“ telefone bei kompiuterio naršyklėje.
+Parenk glaustą, bet techniškai tikslų technologijų, mokslo pasiekimų, pramonės inovacijų ir sutelktinio finansavimo bei ROL Lithuania, rolgroup.sharepoint.com naujienlaiškį iš pastarosios paros įvykių ir pateik jį kaip vieno failo HTML5 dokumentą (nuo <!DOCTYPE html> iki </html>) lietuvių kalba, optimizuotą skaitymui „Google Pixel 10 Pro XL“ telefone bei kompiuterio naršyklėje.
 
 TURINIO IR KOKYBĖS REIKALAVIMAI (~5 MIN. SKAITYMO TRUKMĖ):
 1. Pradėk nuo trumpos 3–4 punktų greitosios santraukos (TL;DR) išskirtame bordo bloke (po 1 sakinį kiekvienam punktui).
