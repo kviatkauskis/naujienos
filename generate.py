@@ -12,7 +12,7 @@ def main():
 
     prompt = f"""
 Šiandienos data: {date_lt}.
-Parenk glaustą, bet techniškai tikslų technologijų, mokslo pasiekimų, pramonės inovacijų, sutelktinio finansavimo  naujienlaiškį iš pastarosios paros įvykių bei įtrauk į naujienas šias įmones atskirai: ROL Lithuania, rolgroup. Dar įdėk naujienas susijusias su Lietuva tai kokie dabar vyksta verslo finasavimo, subsidijų projektai, valstybės verslo skatinimo projektai bei naujausi įstatymai. Šį naujienlaiškį pateik jį kaip vieno failo HTML5 dokumentą (nuo <!DOCTYPE html> iki </html>) lietuvių kalba, optimizuotą skaitymui „Google Pixel 10 Pro XL“ telefone bei kompiuterio naršyklėje.
+Parenk glaustą, bet techniškai tikslų technologijų, mokslo pasiekimų, pramonės inovacijų, sutelktinio finansavimo  naujienlaiškį iš pastarosios paros įvykių bei įtrauk į naujienas šias įmones atskirai: ROL Lithuania, rolgroup. Dar įdėk naujienas susijusias su Lietuva .Į Lietuvą sutelk daugiau dėmesio ir varbu tikslumas bei nebūtina į tai žiūrėti per technologijų prizmę, o tiesiog pateik aktualijas apie tai kokie dabar vyksta verslo finasavimo, subsidijų projektai, valstybės verslo skatinimo projektai žmonėms bandantiems susikurti sau darbo vietas arba verslą bei naujausi įstatymai Šį naujienlaiškį pateik jį kaip vieno failo HTML5 dokumentą (nuo <!DOCTYPE html> iki </html>) lietuvių kalba, optimizuotą skaitymui „Google Pixel 10 Pro XL“ telefone bei kompiuterio naršyklėje.
 
 TURINIO IR KOKYBĖS REIKALAVIMAI (~7 MIN. SKAITYMO TRUKMĖ):
 1. Pradėk nuo trumpos 3–4 punktų greitosios santraukos (TL;DR) išskirtame bordo bloke (po 1 sakinį kiekvienam punktui).
