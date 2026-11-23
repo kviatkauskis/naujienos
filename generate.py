@@ -12,9 +12,9 @@ def main():
 
     prompt = f"""
 Šiandienos data: {date_lt}.
-Parenk glaustą, bet techniškai tikslų technologijų, mokslo pasiekimų, pramonės inovacijų, sutelktinio finansavimo  naujienlaiškį iš pastarosios paros įvykių bei įtrauk į naujienas šias įmones atskirai: ROL Lithuania, rolgroup. Šį naujienlaiškį pateik jį kaip vieno failo HTML5 dokumentą (nuo <!DOCTYPE html> iki </html>) lietuvių kalba, optimizuotą skaitymui „Google Pixel 10 Pro XL“ telefone bei kompiuterio naršyklėje.
+Parenk glaustą, bet techniškai tikslų technologijų, mokslo pasiekimų, pramonės inovacijų, sutelktinio finansavimo  naujienlaiškį iš pastarosios paros įvykių bei įtrauk į naujienas šias įmones atskirai: ROL Lithuania, rolgroup. Dar įdėk naujienas susijusias su Lietuva tai kokie dabar vyksta verslo finasavimo, subsidijų projektai, valstybės verslo skatinimo projektai bei naujausi įstatymai. Šį naujienlaiškį pateik jį kaip vieno failo HTML5 dokumentą (nuo <!DOCTYPE html> iki </html>) lietuvių kalba, optimizuotą skaitymui „Google Pixel 10 Pro XL“ telefone bei kompiuterio naršyklėje.
 
-TURINIO IR KOKYBĖS REIKALAVIMAI (~5 MIN. SKAITYMO TRUKMĖ):
+TURINIO IR KOKYBĖS REIKALAVIMAI (~7 MIN. SKAITYMO TRUKMĖ):
 1. Pradėk nuo trumpos 3–4 punktų greitosios santraukos (TL;DR) išskirtame bordo bloke (po 1 sakinį kiekvienam punktui).
 2. Pateik 4 skyrius: „01 Technologijos ir skaičiavimai“, „02 Mokslo pasiekimai“, „03 Pramonės inovacijos ir gamyba“, „04 Sutelktinis finansavimas“ (po 2 svarbiausias naujienas, iš viso 8; sutelktiniame finansavime rinkis tik tuos Kickstarter ar panašius projektus, kurie turi veikiantį fizinį prototipą).
 3. Glaustas naujienų stilius (bendra skaitymo trukmė ~5 min.):
