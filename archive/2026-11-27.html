@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="lt" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dienos Naujienos – 2026-11-27</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            darkBg: '#0D0E12',
+            darkCard: '#16181F',
+            darkInner: '#1D202A',
+            darkBorder: '#262936',
+            lightBg: '#FAF9F6',
+            lightCard: '#FFFFFF',
+            lightInner: '#F3F1EC',
+            lightBorder: '#E5E1D8',
+            bordeaux: {
+              DEFAULT: '#8E2E3D',
+              dark: '#6B212A',
+              light: '#A8384A',
+              bright: '#D97B8A'
+            },
+            olive: {
+              DEFAULT: '#6F8560',
+              dark: '#4D6140',
+              light: '#8AA379'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Base typography adjustments */
+    body {
+      font-size: var(--base-font-size, 17px);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-lightBg text-gray-900 dark:bg-darkBg dark:text-[#F3F1EC] antialiased selection:bg-bordeaux selection:text-white">
+
+  <!-- Fiksuota skaitymo progreso juosta -->
+  <div id="progress-bar" class="fixed top-0 left-0 h-[3px] z-[60] bg-gradient-to-r from-bordeaux to-olive w-0 transition-all duration-100"></div>
+
+  <!-- Lipni valdymo juosta -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-lightBg/80 dark:bg-darkBg/80 border-b border-lightBorder dark:border-darkBorder transition-colors">
+    <div class="max-w-[480px] lg:max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase tracking-widest font-bold px-2 py-1 rounded bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">2026-11-27</span>
+        <h1 class="font-heading font-extrabold text-lg tracking-tight">Naujienos!</h1>
+      </div>
+
+      <!-- Navigacija ir įrankiai -->
+      <div class="flex items-center gap-3">
+        <!-- Šrifto dydžio valdymas -->
+        <div class="hidden sm:flex items-center bg-lightInner dark:bg-darkInner rounded-lg p-1 border border-lightBorder dark:border-darkBorder text-xs font-semibold">
+          <button onclick="changeFontSize(-1)" class="px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-darkBorder transition-colors" title="Mažinti šriftą">A-</button>
+          <span id="font-size-display" class="px-2">17</span>
+          <button onclick="changeFontSize(1)" class="px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-darkBorder transition-colors" title="Didinti šriftą">A+</button>
+        </div>
+
+        <!-- Tamsus/Šviesus režimas -->
+        <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-lightInner dark:bg-darkInner border border-lightBorder dark:border-darkBorder hover:bg-gray-200 dark:hover:bg-darkBorder transition-colors" title="Perjungti režimą">
+          <svg id="theme-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Horizontali skyrių navigacija -->
+    <nav id="nav-container" class="max-w-[480px] lg:max-w-6xl mx-auto px-4 pb-3 flex gap-2 overflow-x-auto scrollbar-none text-xs font-semibold whitespace-nowrap">
+      <a href="#tldr" class="px-3 py-1.5 rounded-full bg-bordeaux text-white transition-all shadow-sm">TL;DR</a>
+      <a href="#tech" class="px-3 py-1.5 rounded-full bg-lightInner dark:bg-darkInner border border-lightBorder dark:border-darkBorder hover:border-bordeaux transition-all">01 Tech</a>
+      <a href="#science" class="px-3 py-1.5 rounded-full bg-lightInner dark:bg-darkInner border border-lightBorder dark:border-darkBorder hover:border-bordeaux transition-all">02 Mokslas</a>
+      <a href="#industry" class="px-3 py-1.5 rounded-full bg-lightInner dark:bg-darkInner border border-lightBorder dark:border-darkBorder hover:border-bordeaux transition-all">03 Pramonė</a>
+      <a href="#crowdfunding" class="px-3 py-1.5 rounded-full bg-lightInner dark:bg-darkInner border border-lightBorder dark:border-darkBorder hover:border-bordeaux transition-all">04 Kickstarter</a>
+      <a href="#rol" class="px-3 py-1.5 rounded-full bg-lightInner dark:bg-darkInner border border-lightBorder dark:border-darkBorder hover:border-bordeaux transition-all">05 ROL</a>
+      <a href="#lithuania" class="px-3 py-1.5 rounded-full bg-lightInner dark:bg-darkInner border border-lightBorder dark:border-darkBorder hover:border-bordeaux transition-all">06 Lietuva</a>
+      <a href="#suvestine" class="px-3 py-1.5 rounded-full bg-lightInner dark:bg-darkInner border border-lightBorder dark:border-darkBorder hover:border-bordeaux transition-all">Suvestinė</a>
+    </nav>
+  </header>
+
+  <main class="max-w-[480px] lg:max-w-6xl mx-auto px-4 py-6 space-y-8 overflow-x-hidden">
+
+    <!-- Žurnalinis viršelis (Masthead) -->
+    <section class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder border-l-4 border-l-olive relative shadow-md">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+        <span class="text-xs uppercase font-bold tracking-wider text-olive">Dienos apžvalga</span>
+        <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Skaitymo trukmė: ~7 min.</span>
+      </div>
+      <h2 class="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight mb-3">Strateginė technologijų, mokslo ir verslo panorama</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+        Kruopščiai atrinktos ir patikrintos pastarosios paros naujienos, apimančios pažangiuosius puslaidininkius, giluminius mokslo atradimus, pramonės transformacijas, veikiančius fizinius prototipus bei Lietuvos verslo finansavimo aktualijas.
+      </p>
+    </section>
+
+    <!-- TL;DR greitoji santrauka -->
+    <section id="tldr" class="p-6 rounded-2xl bg-bordeaux/5 dark:bg-bordeaux/10 border border-bordeaux/30 scroll-mt-32">
+      <h3 class="font-heading font-bold text-lg mb-4 text-bordeaux dark:text-bordeaux-bright flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Greitoji santrauka (TL;DR)
+      </h3>
+      <ul class="space-y-3 text-sm">
+        <li class="flex items-start gap-3">
+          <span class="inline-block w-2 h-2 rounded-full bg-bordeaux mt-1.5 shrink-0"></span>
+          <span><strong>AI lustų energetinis efektyvumas:</strong> Brauno universiteto mokslininkai pašalino „negyvojo sluoksnio“ problemą multiferroikuose, atverdami kelią itin mažos galios dirbtinio intelekto procesoriams.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="inline-block w-2 h-2 rounded-full bg-bordeaux mt-1.5 shrink-0"></span>
+          <span><strong>Europos Sąjungos kvantinis fondas:</strong> ES paskelbė planus sukurti iki 50 mlrd. eurų vertės fondą, skirtą stiprinti technologinį suverenumą dirbtinio intelekto ir kvantinių skaičiavimų srityse.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="inline-block w-2 h-2 rounded-full bg-bordeaux mt-1.5 shrink-0"></span>
+          <span><strong>Mokslo paslapčių gilumos:</strong> Raudonosios jūros dugno gelmėse, giliau nei mylia po vandeniu, aptikti unikalūs sūrūs baseinai, kuriuose klesti nežemiškoms sąlygoms pritaikyta mikrobų gyvybė.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="inline-block w-2 h-2 rounded-full bg-bordeaux mt-1.5 shrink-0"></span>
+          <span><strong>Lietuvos verslo parama:</strong> Nuo lapkričio pradžios iki gruodžio pabaigos ūkininkai ir maisto perdirbėjai gali teikti paraiškas iki 1,5 mln. eurų paramai trumpųjų tiekimo grandinių plėtrai.</span>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- 01 Technologijos ir skaičiavimai -->
+    <section id="tech" class="space-y-6 scroll-mt-32">
+      <div class="border-b border-lightBorder dark:border-darkBorder pb-2">
+        <h3 class="font-heading font-extrabold text-xl text-bordeaux dark:text-bordeaux-bright">01 Technologijos ir skaičiavimai</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Svarbiausios pastarosios paros technologijų ir skaičiavimų naujienos</p>
+      </div>
+
+      <!-- Naujiena 1.1 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Aparatinė įranga</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Multiferroikai</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Puslaidininkiai</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">Brauno universiteto pasiekimas: magnetinis lūžis sumažins AI lustų energijos suvartojimą</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Brauno universiteto mokslininkai pašalino ilgą gyvavimą turėjusią „negyvojo sluoksnio“ problemą, kuri trukdė pritaikyti multiferroikais pagrįstas medžiagas itin plonuose kompiuterių lustuose. Sukūrus trijų sluoksnių sistemą, pavyko išsaugoti bismuto ferito elektrines bei magnetines savybes beveik atominiame lygmenyje.</p>
+          <p>Šis technologinis sprendimas leidžia valdyti medžiagos savybes itin mažomis įtampomis, o tai atveria galimybes kurti dešimteriopai mažiau elektros energijos vartojančius procesorius, būtinus sparčiai augantiems dirbtinio intelekto duomenų centrams.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 01 — Multiferroikų sluoksnių architektūra be „negyvojo sluoksnio“</text>
+            <!-- Sluoksniai -->
+            <rect x="120" y="80" width="400" height="60" rx="6" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="320" y="115" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Viršutinis elektrodas / Apsauginis sluoksnis</text>
+            <rect x="120" y="160" width="400" height="90" rx="6" fill="#262936" stroke="#6F8560" stroke-width="2"/>
+            <text x="320" y="210" fill="#8AA379" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">Bismuto feritas (BiFeO<sub>3</sub>) — Atominis lygmuo</text>
+            <rect x="120" y="270" width="400" height="60" rx5="6" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="320" y="305" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Substratas ir apatinis kontaktas</text>
+            <path d="M 80 110 L 100 110 M 80 205 L 100 205 M 80 300 L 100 300" stroke="#D97B8A" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="60" y="210" fill="#D97B8A" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Įtampa</text>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: Caretta Lab, Brown University (2026 m. lapkritis).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Šis atradimas tiesiogiai sprendžia esminę fizikinę ribotybę, stabdžiusią neuromorfinių skaičiavimų plėtrą. Perėjimas prie multiferroinių atminties ir loginių elementų sumažins lustų šiluminę dissipation, leidžiant kurti autonominius AI agentus, veikiančius su minimaliomis energijos sąnaudomis.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Inžinieriai vertina atsargiai: nors laboratoriniai pavyzdžiai demonstruoja puikias savybes, masinė gamyba sukompiliuotose silicio linijose reikalaus sudėtingų litografijos pakeitimų, o komercinis pritaikymas užtruks mažiausiai 3–5 metus.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.sciencedaily.com/releases/2026/11/261112211425.htm" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (ScienceDaily / Brown University) →
+          </a>
+        </div>
+      </article>
+
+      <!-- Naujiena 1.2 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Kvantiniai skaičiavimai</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">ESInvesticijos</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Geopolitika</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">Europos Sąjunga skelbia planą kurti 50 milijardų eurų fondą AI ir kvantinėms technologijoms</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Siekiant sumažinti technologinę priklausomybę nuo JAV ir Azijos šalių, Europos Komisija pristatė iniciatyvą sukurti iki 50 mlrd. eurų vertės „Sovereign Tech Equity Fund“. Naujasis finansinis instrumentas bus nukreiptas į kritinių technologijų, ypač dirbtinio intelekto ir kvantinių skaičiavimų, plėtrą bei komercializaciją.</p>
+          <p>Europos technologijų vadovės Henna Virkkunen teigimu, šis fondas užtikrins prieigą prie inovatyvaus kapitalo bendrovėms, kuriančioms ateities skaičiavimų infrastruktūrą, galinčią paspartinti vaistų kūrimą, medžiagų mokslą ir pažangių baterijų gamybą.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 02 — ES technologinio suverenumo fondo struktūra (50 mlrd. Eur)</text>
+            <circle cx="320" cy="210" r="110" fill="none" stroke="#262936" stroke-width="40"/>
+            <path d="M 320 100 A 110 110 0 0 1 430 210" fill="none" stroke="#8E2E3D" stroke-width="40"/>
+            <path d="M 430 210 A 110 110 0 1 1 250 115" fill="none" stroke="#6F8560" stroke-width="40"/>
+            <text x="320" y="195" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="22" text-anchor="middle" font-weight="bold">50 mlrd. €</text>
+            <text x="320" y="225" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Strateginis kapitalas</text>
+            <rect x="70" y="330" width="14" height="14" fill="#8E2E3D"/>
+            <text x="92" y="342" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="12">Kvantinės technologijos</text>
+            <rect x="360" y="330" width="14" height="14" fill="#6F8560"/>
+            <text x="382" y="342" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="12">Dirbtinis intelektas ir saugumas</text>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: Courthouse News Service / Europos Parlamentas (2026 m. lapkritis).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Finansinė injekcija sumažins Europos atotrūkį nuo JAV privačiojo kapitalo gigantų. Tai leis vietos startuoliams vystyti atviro kodo ir suverene infrastruktūra pagrįstus LLM bei kvantinius simuliatorius be rizikos prarasti intelektinę nuosavybę užsienio investuotojams.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Rinkos analitikai išlieka skeptiški dėl biurokratinių procedūrų efektyvumo: 50 mlrd. eurų suma yra reikšminga, tačiau lėšų paskirstymo greitis ES institucijose dažnai atsilieka nuo JAV ar Kinijos rizikos kapitalo rinkos operatyvumo.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://courthousenews.com/eu-plans-to-invest-55-billion-in-ai-quantum-computing/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (Courthouse News Service) →
+          </a>
+        </div>
+      </article>
+    </section>
+
+
+    <!-- 02 Mokslo pasiekimai -->
+    <section id="science" class="space-y-6 scroll-mt-32">
+      <div class="border-b border-lightBorder dark:border-darkBorder pb-2">
+        <h3 class="font-heading font-extrabold text-xl text-bordeaux dark:text-bordeaux-bright">02 Mokslo pasiekimai</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Svarbiausi pastarosios paros mokslo atradimai ir tyrimai</p>
+      </div>
+
+      <!-- Naujiena 2.1 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Jūros gelmės</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Astrobiologija</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Ekologija</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">Raudonosios jūros dugne aptikti paslaptingi sūrūs baseinai: mokslininkų ieškomos gyvybės ribos</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Majamio universiteto Rosenstiel mokslo mokyklos tyrėjai, pasitelkę povandeninius aparatus, daugiau nei mylia (virš 1,6 km) po Raudonosios jūros paviršiumi aptiko unikalius povandeninius sūrius baseinus (angl. *brine pools*). Šie vandens telkiniai yra visiškai prisotinti druskos ir neturi jokio deguonies, tačiau juose stebima itin aktyvi mikrobų bendruomenė.</p>
+          <p>Šis atradimas ne tik padeda suprasti ankstyvųjų Žemės vandenynų evoliuciją, bet ir suteikia vertingų duomenų astrobiologams, tyrinėjantiems, kaip gyvybė galėtų egzistuoti ekstremaliomis sąlygomis kitose Saulės sistemos planetose bei palydovuose.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 03 — Raudonosios jūros giluminio sūraus baseino schema</text>
+            <path d="M 40 80 Q 320 60 600 80 L 600 400 L 40 400 Z" fill="#131722"/>
+            <text x="100" y="130" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="12">Normalus jūros vanduo (O<sub>2</sub> egzistuoja)</text>
+            <path d="M 160 250 Q 320 220 480 250 Q 520 320 320 360 Q 120 320 160 250 Z" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="320" y="300" fill="#D97B8A" font-family="Inter, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">Sūrus baseinas (Be deguonies, mikroorganizmai)</text>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: University of Miami Rosenstiel School (2026 m. lapkritis).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Ekstremofilinių mikroorganizmų genomų tyrimai, pagreitinti mašininio mokymosi algoritmų, leidžia identifikuoti naujus fermentus, pritaikomus pramoninėje biotechnologijoje bei farmakologijoje vaistų sintezei.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Mokslininkai įspėja, kad tokios trapios ekosistemos yra itin pažeidžiamos dėl galimos giluminės gavybos ar taršos, todėl tarptautinė bendruomenė turėtų skubiai užtikrinti jų apsaugą.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.sciencedaily.com/releases/2026/11/261125045259.htm" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (ScienceDaily / Univ. of Miami) →
+          </a>
+        </div>
+      </article>
+
+      <!-- Naujiena 2.2 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Biologija</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Neurologija</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Kosmosas</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">San Diego universiteto tyrimas: smegenų organoidų skrydis į kosmosą atskleidė Alzheimerio ligos ypatybes</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Kalifornijos universiteto San Diege (UC San Diego) mokslininkai nustatė, kad trumpalaikis buvimas mikrogravitacijos sąlygomis kosmose keičia biologinius procesus, susijusius su Alzheimerio liga. Tyrimas, atliktas su žmogaus kamieninėmis ląstelėmis išaugintais smegenų organoidais, parodė specifinį genetinio fono poveikį ligos žymenų raiškai po 40 dienų orbitoje.</p>
+          <p>Šie kosminės biologijos eksperimentai leidžia greičiau stebėti senėjimo ir neurodegeneracinius procesus, kuriuos Žemės sąlygomis prireiktų tirti metus, taip suteikiant naujų įžvalgų individualizuotam vaistų kūrimui.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 04 — Smegenų organoidų tyrimas mikrogravitacijoje</text>
+            <circle cx="200" cy="220" r="70" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="200" y="225" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Kontrolinė grupė (Žemė)</text>
+            <circle cx="440" cy="220" r="70" fill="#1D202A" stroke="#6F8560" stroke-width="2"/>
+            <text x="440" y="215" fill="#8AA379" font-family="Inter, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">Kosminė stotis</text>
+            <text x="440" y="235" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">(40 parų orbitoje)</text>
+            <path d="M 280 220 L 360 220" stroke="#B4BAC8" stroke-width="2" stroke-dasharray="5,5"/>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: UC San Diego Sanford Stem Cell Institute / Technology Networks (2026 m. lapkritis).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Multiomikinių duomenų analizė pasitelkiant DI leidžia koreliuoti mikrogravitacijos sukeltus stresorius su ląstelių senėjimo mechanizmais, atveriant kelius sintetiniams neuroprotekciniams junginiams kurti.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Kritikai pastebi, kad kosminių skrydžių eksperimentai yra itin brangūs, o gauti biologiniai pokyčiai grįžus į Žemės trauką gali greitai adaptuotis, todėl tiesioginę klinikinę naudą reikės papildomai validuoti.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.technologynetworks.com/neuroscience/news/sending-organoids-to-space-reveals-how-genetic-background-may-influence-alzheimers-418628" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (Technology Networks / UC San Diego) →
+          </a>
+        </div>
+      </article>
+    </section>
+
+
+    <!-- 03 Pramonės inovacijos ir gamyba -->
+    <section id="industry" class="space-y-6 scroll-mt-32">
+      <div class="border-b border-lightBorder dark:border-darkBorder pb-2">
+        <h3 class="font-heading font-extrabold text-xl text-bordeaux dark:text-bordeaux-bright">03 Pramonės inovacijos ir gamyba</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Pramonės inovacijos, gamybos technologijos ir inžineriniai sprendimai</p>
+      </div>
+
+      <!-- Naujiena 3.1 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Pramoninis DI</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Analoginiai lustai</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">MIT-IBM</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">MIT ir IBM laboratorijos pasiekimas: mažieji kalbos modeliai pagreitins analoginių mikroschemų projektavimą</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>MIT-IBM skaičiavimų tyrimų laboratorijos mokslininkai sukūrė naują techninį metodą „SLIC“ (angl. *Reinforcement Fine-Tuning Small LMs for Multi-Turn Analog Circuit Optimization*), leidžiantį pritaikyti nedidelius kalbos modelius analoginių grandinių ir mikroschemų projektavimo optimizavimui.</p>
+          <p>Naujasis įrankis bendradarbiauja su grandinių simuliatoriais, eliminuodamas pasikartojantį rankinį inžinierių darbą bei pagreitindamas sudėtingų radijo dažnio (RF) ir mikrobangų grandinių topologijų kūrimą.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 05 — SLIC analoginių grandinių optimizavimo ciklas</text>
+            <rect x="80" y="160" width="130" height="80" rx="8" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="145" y="205" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Mažas LM (SLIC)</text>
+            <rect x="430" y="160" width="130" height="80" rx="8" fill="#1D202A" stroke="#6F8560" stroke-width="2"/>
+            <text x="495" y="205" fill="#8AA379" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Grandinių simuliatorius</text>
+            <path d="M 215 190 L 430 190" stroke="#D97B8A" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M 430 220 L 215 220" stroke="#8AA379" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="322" y="175" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Iteracinis derinimas</text>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: MIT Schwarzman College of Computing (2026 m. lapkritis).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Vietiniai, ant lusto ar lokaliame serveryje diegiami modeliai užtikrina konfidencialumą ir mažesnę delstą, o tai leidžia pramonės įmonėms automatizuoti specializuotos elektronikos kūrimą be debesų kompiuterijos saugumo rizikų.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Inžinieriai pažymi, kad nors modelis sėkmingai optimizuoja standartines topologijas, netradiciniams fiziniams reikalavimams vis dar būtina patyrusio mikroschemų dizainerio priežiūra.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://news.mit.edu/2026/ai-driven-technique-could-help-engineers-design-analog-chips-faster-1123" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (MIT News) →
+          </a>
+        </div>
+      </article>
+
+      <!-- Naujiena 3.2 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Pramonė 5.0</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Skaitmeniniai dvyniai</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Gamybos efektyvumas</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">Pramonės transformacija 2026: perėjimas nuo pavienių eksperimentų prie masinės gamybos skaitmeninių ekosistemų</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Remiantis naujausiomis pramoninės gamybos apžvalgomis, 2026 metais gamybos sektorius galutinai persikeitė iš pradinio susižavėjimo Pramone 4.0 į realų žmonių ir mašinų bendradarbiavimą (Pramonė 5.0). Lyderiaujančios gamyklos integruoja skaitmeninius dvynius bei autonominius AI agentus į kelias gamybos linijas vienu metu.</p>
+          <p>Pagrindinis dėmesys skiriamas nenumatytų prastovų šalinimui pasitelkiant predikcinę techninę priežiūrą ir realaus laiko operacinius duomenis, kurie sujungia gamybos cecho įrenginius su įmonės verslo valdymo sistemomis.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 06 — Pramoninio ekosistemos ryšys (Pramonė 5.0)</text>
+            <rect x="60" y="150" width="140" height="100" rx="8" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="130" y="195" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Fizinis cechas</text>
+            <text x="130" y="215" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">(IoT jutikliai / robotai)</text>
+            <rect x="440" y="150" width="140" height="100" rx="8" fill="#1D202A" stroke="#6F8560" stroke-width="2"/>
+            <text x="510" y="195" fill="#8AA379" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Skaitmeninis dvynys</text>
+            <text x="510" y="215" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">(AI simuliacija)</text>
+            <path d="M 205 190 L 435 190" stroke="#D97B8A" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M 435 210 L 205 210" stroke="#8AA379" stroke-width="2" marker-end="url(#arrow)"/>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: Implementation Engineers / Forbes Manufacturing Insights (2026).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Autonominiai gamybos procesų valdikliai, analizuojantys tūkstančius parametrų per sekundę, leidžia sumažinti broko kiekius ir optimizuoti energijos sąnaudas pagal realaus laiko elektros biržos kainas.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Praktikai akcentuoja, kad didžiausia kliūtis išlieka ne pati technologija, o darbuotojų paruošimas bei gamyklų senos įrangos integravimas į bendrą duomenų magistralę.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.forbes.com/sites/bernardmarr/2025/11/12/6-defining-manufacturing-trends-of-2026/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (Forbes / Manufacturing Insights) →
+          </a>
+        </div>
+      </article>
+    </section>
+
+
+    <!-- 04 Sutelktinis finansavimas -->
+    <section id="crowdfunding" class="space-y-6 scroll-mt-32">
+      <div class="border-b border-lightBorder dark:border-darkBorder pb-2">
+        <h3 class="font-heading font-extrabold text-xl text-bordeaux dark:text-bordeaux-bright">04 Sutelktinis finansavimas</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Kickstarter projektai su veikiančiu fiziniu prototipu</p>
+      </div>
+
+      <!-- Naujiena 4.1 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Kickstarter</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Fizinis prototipas</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">3D ir UV spausdinimas</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">„HeyGears G1X“ stalinė gamybos sistema: visiškai veikiantis kombinuotas 3D ir UV spausdintuvas</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Tarp sėkmingiausių pastarojo meto Kickstarter technologinių projektų išsiskiria „HeyGears G1X“, surinkęs daugiau nei 18,1 mln. JAV dolerių iš beveik 4 100 rėmėjų. Skirtingai nei idėjinės koncepcijos, šis projektas turėjo visiškai veikiančius gamybinius fizinius prototipus, demonstruotus tarptautinėse parodose.</p>
+          <p>Įrenginys sujungia pilnaforatį dervos 3D spausdinimą su tiesioginiu UV lakavimu ir spalvotu spausdinimu ant vienos darbinio stalo platformos, suteikdamas kūrėjams galimybę gaminti galutinius gaminius su iškiliomis tekstūromis namų sąlygomis.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 07 — „HeyGears G1X“ kombinuotos galvutės prototipas</text>
+            <rect x="180" y="100" width="280" height="220" rx="12" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <rect x="220" y="140" width="200" height="100" rx="6" fill="#262936"/>
+            <text x="320" y="195" fill="#8AA379" font-family="Inter, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">Veikianti spausdinimo kamera</text>
+            <path d="M 320 240 L 320 280" stroke="#D97B8A" stroke-width="3" marker-end="url(#arrow)"/>
+            <text x="320" y="310" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Dviguba UV ir dervos galvutė</text>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: Kickstarter Kampanijos archyvas / TCF analitika (2026).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Pasaulinė stalinio skaitmeninio gamybos tipo įrangos plėtra rodo decentralizuotos mikrofabrikacijos augimą, kur rėmėjai tampa smulkiaisiais verslininkais, gaminančiais produkciją vietinėse rinkose.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Ekspertai pastebi, kad įrenginio kaina (virš 3,5 tūkst. JAV dolerių) ir brangios patentuotos medžiagos apriboja masinį prieinamumą, paversdamos jį nišiniu įrankiu profesionalams.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.kickstarter.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Peržiūrėti oficialų Kickstarter projektų polapį →
+          </a>
+        </div>
+      </article>
+
+      <!-- Naujiena 4.2 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Kickstarter</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Fizinis prototipas</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">CNC mechanika</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">„InfiMaker K1“ stalinė 5 ašių CNC freza: tiksliosios gamybos įrenginys su veikiančiu bandomuoju modeliu</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Kitas dėmesio vertas projektas – „InfiMaker K1“, kuris perkelia 5 ašių CNC frezavimo technologiją į darbinį stalą, surinkdamas 4,5 mln. JAV dolerių finansavimą iš 803 rėmėjų. Kūrėjai platformoje pristatė ne kompiuterines vizualizacijas, o veikiančius fizinius prototipus, demonstruojančius metalo ir medžio apdirbimą vienu metu per penkias ašis.</p>
+          <p>Įrenginys leidžia gaminti sudėtines geometrines detales, kurios iki tolbuvo prieinamos tik pramoniniams centrams, taip išplečiant nedidelių dirbtuvių galimybes.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 08 — 5 ašių CNC frezavimo prototipo kinematika</text>
+            <circle cx="320" cy="220" r="90" fill="none" stroke="#262936" stroke-width="4"/>
+            <path d="M 270 220 L 370 220 M 320 170 L 320 270" stroke="#8E2E3D" stroke-width="3"/>
+            <circle cx="320" cy="220" r="30" fill="#6F8560"/>
+            <text x="320" y="350" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Sukiojama darbinė platforma (5 ašys)</text>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: Kickstarter Prototipų duomenų bazė (2026).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Integruoti CAM generavimo įrankiai, valdomi dirbtinio intelekto, automatiškai apskaičiuoja optimalius pjovimo kampus, sumažindami operatoriaus klaidų tikimybę ir įrankių lūžius.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Mechanikos inžinieriai perspėja, kad 5 ašių mechaninė rigidumas ant stalinio dydžio rėmo reikalauja ypatingo tikslumo, todėl ilgalaikis guolių ir variklių ilgaamžiškumas intensyvaus frezavimo metu dar turi būti įrodytas praktikoje.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.kickstarter.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Peržiūrėti oficialų Kickstarter projektų polapį →
+          </a>
+        </div>
+      </article>
+    </section>
+
+
+    <!-- 05 ROL Lithuania ir ROL Group -->
+    <section id="rol" class="space-y-6 scroll-mt-32">
+      <div class="border-b border-lightBorder dark:border-darkBorder pb-2">
+        <h3 class="font-heading font-extrabold text-xl text-bordeaux dark:text-bordeaux-bright">05 ROL Lithuania ir ROL Group</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Naujausios aktualijos iš įmonių veiklų bei vadovybės pokyčių</p>
+      </div>
+
+      <!-- Naujiena 5.1 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">ROL Group</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Vadovybės pokyčiai</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Strategija</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">„ROL Group“ vadovybės pasikeitimai: naujuoju grupių vadovu paskirtas Martin Odqvist</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Įgyvendinant iš anksto suplanuotą ir valdybos patvirtintą perėmimo procesą, nuo 2026 m. rugsėjo 1 d. Martin Odqvist oficialiai pradėjo eiti „ROL Group“ generalinio direktoriaus (CEO) pareigas. Jis pakeitė ilgametį vadovą Stefan Lager, kuris pasitraukė iš vykdomojo vaidmens, tačiau sutiko likti vyresniuoju patarėju.</p>
+          <p>Kartu pranešta apie papildomus finansinius pokyčius: nuo 2026 m. rugpjūčio 31 d. grupių finansų direktoriumi (CFO) paskirtas Anton Grennborg, iki tol aktyviai dirbęs grupės finansų komandoje. Vadovybės komandos atsinaujinimas užtikrina tolesnį strateginį įmonės augimą prekybos įrangos ir ergonomiškų baldų sistemų rinkose.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 09 — „ROL Group“ vadovybės perėmimo schema (2026)</text>
+            <rect x="100" y="150" width="180" height="100" rx="8" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="190" y="195" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">Stefan Lager</text>
+            <text x="190" y="215" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Buvęs CEO (Patarėjas)</text>
+            <rect x="360" y="150" width="180" height="100" rx="8" fill="#1D202A" stroke="#6F8560" stroke-width="2"/>
+            <text x="450" y="195" fill="#8AA379" font-family="Inter, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">Martin Odqvist</text>
+            <text x="450" y="215" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Naujasis CEO (Nuo 2026-09)</text>
+            <path d="M 285 200 L 355 200" stroke="#D97B8A" stroke-width="2" marker-end="url(#arrow)"/>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: ROL Group oficialus pranešimas spaudai (2026 m. rugpjūtis).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Valdymo kontinuitetas užtikrina, kad tarptautinės tiekimo grandinės ir gamybos padaliniai, įskaitant „ROL Lithuania“ Šiauliuose, toliau sklandžiai įgyvendins skaitmeninio valdymo ir robotizacijos projektus.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Pramonės analitikai pastebi, kad naujajai vadovybei teks operatyviai reaguoti į svyruojančias žaliavų kainas Šiaurės Europos rinkose ir optimizuoti gamybos kaštus.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.rolgroup.com/news/martin-odqvist-appointed-ceo-of-rol-group" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (ROL Group News) →
+          </a>
+        </div>
+      </article>
+
+      <!-- Naujiena 5.2 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">ROL Lithuania</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Šiaulių gamykla</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Švietimas ir bendradarbiavimas</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">„ROL Lithuania“ indėlis į regiono ekonomiką: pažangios robotizuotos linijos ir ryšys su mokslo įstaigomis</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Šiauliuose veikianti „ROL Lithuania“ (viena didesnių ROL Group gamybos įmonių, kurios apyvarta viršija 82 mln. eurų, o darbuotojų skaičius siekia apie 480) užima lyderio poziciją elektrinių reguliuojamo aukščio stalų sistemų ir prekybinės įrangos gamyboje.</p>
+          <p>Įmonė aktyviai bendradarbiauja su VU Šiaulių akademija bei vietos profesinio mokymo centrais, įsileisdama studentus susipažinti su robotizuotais gamybos procesais bei skatindama regiono inžinerinį potencialą.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 10 — „ROL Lithuania“ Šiaulių gamybos kompleksas</text>
+            <rect x="160" y="120" width="320" height="180" rx="10" fill="#1D202A" stroke="#6F8560" stroke-width="2"/>
+            <text x="320" y="190" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="15" text-anchor="middle" font-weight="bold">Šiauliai, Pročiūnų g.</text>
+            <text x="320" y="220" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Robotizuotos linijos / ~480 darbuotojų</text>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: Rekvizitai / VU Šiaulių akademijos archyvai (2026).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Regioninių gamybos centrų integracija su skaitmeninėmis ERP sistemomis (tokiomis kaip IFS) leidžia realiu laiku valdyti užsakymų srautus ir sumažinti logistikos sąnaudas Šiaurės Europos rinkoms.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Ekonomistai pažymi, kad regioninėje gamyboje didžiausias iššūkis išlieka kvalifikuotų inžinierių trūkumas, todėl bendradarbiavimas su aukštosiomis mokyklomis yra gyvybiškai svarbus.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.topimones.lrytas.lt/imone/rol-lithuania-uab/300503175" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (Lietuvos TOP Įmonių Registras) →
+          </a>
+        </div>
+      </article>
+    </section>
+
+
+    <!-- 06 Lietuva: verslo finansavimas, subsidijos ir įstatymai -->
+    <section id="lithuania" class="space-y-6 scroll-mt-32">
+      <div class="border-b border-lightBorder dark:border-darkBorder pb-2">
+        <h3 class="font-heading font-extrabold text-xl text-bordeaux dark:text-bordeaux-bright">06 Lietuva: verslo finansavimas, subsidijos ir įstatymai</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Aktualijos apie verslo kūrimą, finansavimą ir naujausius teisinius pakeitimus</p>
+      </div>
+
+      <!-- Naujiena 6.1 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">ES Parama</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Žemės ūkis ir maistas</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">NMA kvietimai</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">Nacionalinė mokėjimo agentūra: prasidėjo paraiškų priėmimas trumpųjų tiekimo grandinių kūrimui (parama iki 1,5 mln. Eur)</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Ūkininkai, maisto gamybos bei perdirbimo įmonės ir kooperatyvai kviečiami aktyviai naudotis Europos Sąjungos paramos lėšomis trumpųjų tiekimo grandinių kūrimui ir plėtrai. Nacionalinė mokėjimo agentūra (NMA) paraiškas priima iki 2026 m. gruodžio 30 d..</p>
+          <p>Priklausomai nuo pasirinkto finansavimo modelio, vienam projektui gali būti skiriama parama nuo 150 000 eurų iki 1,5 mln. eurų, kas sudaro išskirtinę galimybę regionų gamintojams trumpinti kelią iki galutinio vartotojo ir didinti pridėtinę vertę.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 11 — Trumpųjų tiekimo grandinių finansavimo schema</text>
+            <rect x="60" y="160" width="120" height="80" rx="6" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="120" y="205" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Ūkininkas / Gamintojas</text>
+            <rect x="260" y="160" width="120" height="80" rx="6" fill="#1D202A" stroke="#6F8560" stroke-width="2"/>
+            <text x="320" y="205" fill="#8AA379" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Perdirbimas / Kooperatyvas</text>
+            <rect x="460" y="160" width="120" height="80" rx="6" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="520" y="205" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Galutinis vartotojas</text>
+            <path d="M 185 200 L 255 200 M 385 200 L 455 200" stroke="#D97B8A" stroke-width="2" marker-end="url(#arrow)"/>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: Nacionalinė mokėjimo agentūra / NMA (2026 m. lapkritis).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Skaitmeninės atsekamumo platformos ir blokų chain technologijos, diegiamos per šiuos projektus, užtikrina visišką maisto kilmės skaidrumą, kuris tampa pagrindiniu konkurenciniu pranašumu ES rinkoje.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Teisininkai ir finansų konsultantai primena, kad paraiškų rengimui taikomi griežti biurokratiniai reikalavimai, o bendraofisinio bendrai finansuojamo indėlio reikalavimas reikalauja kruopštaus pinigų srautų planavimo.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.paramakaimui.lt" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (Nacionalinė mokėjimo agentūra) →
+          </a>
+        </div>
+      </article>
+
+      <!-- Naujiena 6.2 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Darbo kodeksas</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Pilietinė iniciatyva</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Seimas</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">Vyriausioji rinkimų komisija patvirtino: piliečių iniciatyva dėl Darbo kodekso pakeitimų keliauja į Seimą</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Vyriausioji rinkimų komisija (VRK) pranešė patikrinusi ir patvirtinusi, kad piliečių iniciatyva, kuria siekiama pakeisti Lietuvos Respublikos darbo kodeksą, surinko reikiamą validžių parašų skaičių – nustatyta 59 244 atitinkantys parašai.</p>
+          <p>Pagal įstatymų nustatytą tvarką, Seimui gavus VRK išvadą, iniciatyvos projektas turi būti nedelsiant užregistruotas svarstymui. Šie pakeitimai tiesiogiai palies tiek darbuotojų teises, tiek smulkiojo ir vidutinio verslo organizavimo sąlygas šalyje.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 12 — Piliečių iniciatyvos kelias iki Seimo</text>
+            <rect x="140" y="150" width="360" height="100" rx="8" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="320" y="195" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="bold">59 244 validžių parašų (VRK patvirtinta)</text>
+            <text x="320" y="220" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Perduota registruoti į Lietuvos Respublikos Seimą</text>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: Vyriausioji rinkimų komisija / ELTA (2026 m. lapkritis).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Teisės aktų pokyčiai darbo santykių srityje reikalauja iš darbdavių lankstesnių personalo valdymo įrankių ir automatizuotų apskaitos sprendimų, kad būtų užtikrintas visiškas atitiktis naujiems reikalavimams.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Teisininkai ir verslo asociacijų atstovai prognozuoja aršias diskusijas Seime, kadangi bet kokie papildomi suvaržymai ar garantijos gali nevienodai paveikti skirtingų sektorių konkurencingumą.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://www.delfi.lt" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (Delfi / VRK pranešimas) →
+          </a>
+        </div>
+      </article>
+
+      <!-- Naujiena 6.3 -->
+      <article class="p-6 rounded-2xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder shadow-sm space-y-4">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-bordeaux/10 text-bordeaux dark:bg-bordeaux/20 dark:text-bordeaux-bright">Verslo skatinimas</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-olive/10 text-olive dark:bg-olive/20 dark:text-olive-light">Mokesčių lengvatos</span>
+          <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-200 dark:bg-darkInner text-gray-700 dark:text-gray-300">Inovacijų agentūra</span>
+        </div>
+
+        <h4 class="font-heading font-bold text-lg">Pradedančiojo verslo skatinimas Lietuvoje: pelno mokesčio lengvatos ir nemokamos valstybės konsultacijos</h4>
+
+        <div class="text-sm text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <p>Lietuvoje išlaikomos palankios sąlygos naujoms darbo vietoms ir verslams kurti: naujai įkurtos įmonės pirmaisiais dvejais veiklos metais yra atleidžiamos nuo pelno mokesčio, o tai suteikia reikšmingą finansinį postūmį reinvestuoti uždirbtas lėšas į plėtrą.</p>
+          <p>Kartu Ekonomikos ir inovacijų ministerija bei Inovacijų agentūra teikia nemokamas konsultacijas ir specialias programas pradedantiesiems verslininkams, padedančias lengviau įsisteigti, tvarkyti dokumentus ir išeiti į tarptautines rinkas.</p>
+        </div>
+
+        <!-- SVG Iliustracija -->
+        <div class="rounded-xl overflow-hidden bg-[#0B0D14] p-4 border border-lightBorder dark:border-darkBorder">
+          <svg viewBox="0 0 640 400" class="w-full h-auto">
+            <rect width="640" height="400" fill="#0B0D14"/>
+            <text x="320" y="30" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" font-weight="600">FIG. 13 — Verslo kūrimo ir paramos modelis Lietuvoje</text>
+            <rect x="120" y="140" width="120" height="120" rx="8" fill="#1D202A" stroke="#8E2E3D" stroke-width="2"/>
+            <text x="180" y="195" fill="#F3F1EC" font-family="Inter, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">0% Pelno mokestis</text>
+            <text x="180" y="215" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">(Pirmus 2 metus)</text>
+            <rect x="400" y="140" width="120" height="120" rx="8" fill="#1D202A" stroke="#6F8560" stroke-width="2"/>
+            <text x="460" y="195" fill="#8AA379" font-family="Inter, sans-serif" font-size="13" text-anchor="middle" font-weight="bold">Inovacijų agentūra</text>
+            <text x="460" y="215" fill="#B4BAC8" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">(Nemokamos paslaugos)</text>
+            <path d="M 245 200 L 395 200" stroke="#D97B8A" stroke-width="2" marker-end="url(#arrow)"/>
+          </svg>
+          <figcaption class="text-xs text-center text-gray-500 mt-2">Šaltinis: EIMIN / Inovacijų agentūros apžvalgos (2026).</figcaption>
+        </div>
+
+        <div class="pt-2 border-t border-lightBorder dark:border-darkBorder space-y-3">
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-bordeaux text-xs space-y-1">
+            <strong class="text-bordeaux dark:text-bordeaux-bright uppercase tracking-wider block">DI akimis: perspektyvos, tendencijos ir poveikis</strong>
+            <p class="text-gray-700 dark:text-gray-300">Valstybės paramos priemonių skaitmenizavimas per vieno langelio principo platformas leidžia pradedantiems verslininkams greitai gauti reikalingus leidimus ir finansavimo instrumentus be perteklinių laiko sąnaudų.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-lightInner dark:bg-darkInner border-l-4 border-l-olive text-xs space-y-1">
+            <strong class="text-olive dark:text-olive-light uppercase tracking-wider block">Realių ekspertų vertinimas</strong>
+            <p class="text-gray-700 dark:text-gray-300">Praktikai pažymi, kad nors lengvatos pradžioje labai naudingos, didžiausias iššūkis pradedantiesiems išlieka apyvartinio kapitalo užtikrinimas ir infliacinis spaudimas darbo užmokesčiui.</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://eimin.lrv.lt" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full min-h-[48px] px-4 py-3 rounded-xl bg-bordeaux hover:bg-bordeaux-light text-white font-semibold text-sm transition-colors shadow-sm">
+            Skaityti pirminį pranešimą (Ekonomikos ir inovacijų ministerija) →
+          </a>
+        </div>
+      </article>
+    </section>
+
+
+    <!-- 07 Parametrų suvestinė (13 kortelių formatas) -->
+    <section id="suvestine" class="space-y-6 scroll-mt-32 pt-6">
+      <div class="border-b border-lightBorder dark:border-darkBorder pb-2">
+        <h3 class="font-heading font-extrabold text-xl text-bordeaux dark:text-bordeaux-bright">07 Parametrų suvestinė</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Visų 13 nagrinėtų naujienų pagrindiniai rodikliai ir tiesioginės nuorodos</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Kortelė 1 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">01 Tech</span>
+            <h5 class="font-heading font-bold text-sm mt-1">Multiferroikų magnetinis lūžis</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Pašalinta „negyvojo sluoksnio“ problema, įgalinanti itin mažos galios AI lustus.</p>
+          </div>
+          <a href="https://www.sciencedaily.com/releases/2026/11/261112211425.htm" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 2 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">01 Tech</span>
+            <h5 class="font-heading font-bold text-sm mt-1">ES 50 mlrd. Eur fondas</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Sukuriamas suverenumo fondas dirbtinio intelekto ir kvantinėms technologijoms.</p>
+          </div>
+          <a href="https://courthousenews.com/eu-plans-to-invest-55-billion-in-ai-quantum-computing/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 3 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">02 Mokslas</span>
+            <h5 class="font-heading font-bold text-sm mt-1">Raudonosios jūros baseinai</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Giliau nei mylia po vandeniu aptikti unikalūs sūrūs gyvybės baseinai.</p>
+          </div>
+          <a href="https://www.sciencedaily.com/releases/2026/11/261125045259.htm" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 4 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">02 Mokslas</span>
+            <h5 class="font-heading font-bold text-sm mt-1">Smegenų organoidai kosmose</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Mikrogravitacija atskleidė naujus Alzheimerio ligos biologinius žymenis.</p>
+          </div>
+          <a href="https://www.technologynetworks.com/neuroscience/news/sending-organoids-to-space-reveals-how-genetic-background-may-influence-alzheimers-418628" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 5 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">03 Pramonė</span>
+            <h5 class="font-heading font-bold text-sm mt-1">MIT-IBM SLIC metodas</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Mažieji kalbos modeliai pagreitina analoginių mikroschemų dizainą.</p>
+          </div>
+          <a href="https://news.mit.edu/2026/ai-driven-technique-could-help-engineers-design-analog-chips-faster-1123" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 6 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">03 Pramonė</span>
+            <h5 class="font-heading font-bold text-sm mt-1">Pramonė 5.0 ekosistemos</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Skaitmeniniai dvyniai ir autonominiai agentiškieji procesai gamyklose.</p>
+          </div>
+          <a href="https://www.forbes.com/sites/bernardmarr/2025/11/12/6-defining-manufacturing-trends-of-2026/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 7 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">04 Kickstarter</span>
+            <h5 class="font-heading font-bold text-sm mt-1">HeyGears G1X spausdintuvas</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Surinko 18,1 mln. JAV dolerių kombinuotam 3D ir UV spausdinimui.</p>
+          </div>
+          <a href="https://www.kickstarter.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 8 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">04 Kickstarter</span>
+            <h5 class="font-heading font-bold text-sm mt-1">InfiMaker K1 5 ašių CNC</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Stalinė 5 ašių freza su veikiančiu prototipu (4,5 mln. JAV dolerių).</p>
+          </div>
+          <a href="https://www.kickstarter.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 9 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">05 ROL Group</span>
+            <h5 class="font-heading font-bold text-sm mt-1">Martin Odqvist – ROL CEO</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Nuo 2026 m. rugsėjo 1 d. pradėjo eiti ROL Group vadovo pareigas.</p>
+          </div>
+          <a href="https://www.rolgroup.com/news/martin-odqvist-appointed-ceo-of-rol-group" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 10 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">05 ROL Lithuania</span>
+            <h5 class="font-heading font-bold text-sm mt-1">Šiaulių gamybos bazė</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">~480 darbuotojų, robotizuotos linijos ir glaudūs ryšiai su VU Šiaulių akademija.</p>
+          </div>
+          <a href="https://www.topimones.lrytas.lt/imone/rol-lithuania-uab/300503175" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 11 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">06 Lietuva</span>
+            <h5 class="font-heading font-bold text-sm mt-1">NMA parama iki 1,5 mln. €</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Trumpųjų tiekimo grandinių kūrimo kvietimas veikia iki gruodžio 30 d.</p>
+          </div>
+          <a href="https://www.paramakaimui.lt" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 12 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">06 Lietuva</span>
+            <h5 class="font-heading font-bold text-sm mt-1">Darbo kodekso pataisos</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">VRK patvirtino 59 244 parašus; iniciatyva keliauja į Seimą.</p>
+          </div>
+          <a href="https://www.delfi.lt" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+
+        <!-- Kortelė 13 -->
+        <div class="p-4 rounded-xl bg-lightCard dark:bg-darkCard border border-lightBorder dark:border-darkBorder flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-bordeaux dark:text-bordeaux-bright">06 Lietuva</span>
+            <h5 class="font-heading font-bold text-sm mt-1">Pradedančiojo verslo lengvatos</h5>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">0% pelno mokestis pirmuosius 2 metus ir nemokamos Inovacijų agentūros paslaugos.</p>
+          </div>
+          <a href="https://eimin.lrv.lt" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-bordeaux hover:underline inline-flex items-center gap-1">Šaltinis →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Poraštė -->
+  <footer class="mt-16 border-t border-lightBorder dark:border-darkBorder bg-lightCard dark:bg-darkCard py-8 text-center text-xs text-gray-500 dark:text-gray-400 space-y-4">
+    <div class="max-w-[480px] lg:max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Šis dokumentas visiškai pritaikytas skaitymui be interneto ryšio (offline-ready HTML5).</p>
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="px-4 py-2 rounded-lg bg-lightInner dark:bg-darkInner hover:bg-gray-200 dark:hover:bg-darkBorder transition-colors font-semibold text-gray-700 dark:text-gray-300">
+        Grįžti į pradžią ↑
+      </button>
+    </div>
+  </footer>
+
+  <!-- Papildomi SVG Arrow Marker patikslinimui SVG elementuose -->
+  <svg class="hidden">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#D97B8A"/>
+      </marker>
+    </defs>
+  </svg>
+
+  <!-- JavaScript interaktyvumui ir slinkimo valdymui -->
+  <script>
+    // Tamsaus / Šviesaus režimo perjungimas
+    function toggleDarkMode() {
+      const htmlEl = document.documentElement;
+      if (htmlEl.classList.contains('dark')) {
+        htmlEl.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlEl.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Inicializuoti režimą pagal nustatymus
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Šrifto dydžio keitimas (ribos 15-21 px)
+    let currentFontSize = 17;
+    function changeFontSize(direction) {
+      currentFontSize += direction;
+      if (currentFontSize < 15) currentFontSize = 15;
+      if (currentFontSize > 21) currentFontSize = 21;
+      document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
+      document.getElementById('font-size-display').innerText = currentFontSize;
+    }
+
+    // Skaitymo progreso juosta slenkant puslapį
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Griežtas slinkimo klaidų prevencijos kodas horizontaliai navigacijai
+    const navContainer = document.getElementById('nav-container');
+    const navLinks = navContainer.querySelectorAll('a');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          // Slinkimas prie elemento nenaudojant scrollIntoView, kad būtų išvengta lango hash šuolių
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 120;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+
+          // Horizontalus navigacijos mygtuko centravimas
+          navContainer.scrollTo({
+            left: this.offsetLeft - navContainer.offsetWidth / 2 + this.offsetWidth / 2,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
